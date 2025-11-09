@@ -1,0 +1,132 @@
+---
+// Starfield background component with slow-moving stars
+---
+
+<canvas
+	id="starfield-canvas"
+	class="fixed inset-0 -z-10 w-full h-full"
+	aria-hidden="true"
+></canvas>
+
+<script>
+	interface Star {
+		x: number;
+		y: number;
+		z: number;
+		speed: number;
+	}
+
+	class Starfield {
+		private canvas: HTMLCanvasElement;
+		private ctx: CanvasRenderingContext2D;
+		private stars: Star[] = [];
+		private animationId: number | null = null;
+		private readonly starCount = 200;
+		private readonly maxDepth = 1000;
+		private readonly speed = 0.5;
+
+		constructor(canvasId: string) {
+			const canvas = document.getElementById(canvasId) as HTMLCanvasElement;
+			if (!canvas) return;
+
+			this.canvas = canvas;
+			const ctx = canvas.getContext('2d');
+			if (!ctx) return;
+
+			this.ctx = ctx;
+			this.init();
+			this.resize();
+			this.animate();
+
+			window.addEventListener('resize', () => this.resize());
+		}
+
+		private init() {
+			// Create stars
+			for (let i = 0; i < this.starCount; i++) {
+				this.stars.push({
+					x: Math.random() * this.canvas.width - this.canvas.width / 2,
+					y: Math.random() * this.canvas.height - this.canvas.height / 2,
+					z: Math.random() * this.maxDepth,
+					speed: 0.2 + Math.random() * 0.3,
+				});
+			}
+		}
+
+		private resize() {
+			this.canvas.width = window.innerWidth;
+			this.canvas.height = window.innerHeight;
+		}
+
+		private update() {
+			const centerX = this.canvas.width / 2;
+			const centerY = this.canvas.height / 2;
+
+			for (let i = 0; i < this.stars.length; i++) {
+				const star = this.stars[i];
+				
+				// Move star forward
+				star.z -= star.speed * this.speed;
+
+				// Reset star if it goes too close
+				if (star.z <= 0) {
+					star.x = Math.random() * this.canvas.width - this.canvas.width / 2;
+					star.y = Math.random() * this.canvas.height - this.canvas.height / 2;
+					star.z = this.maxDepth;
+				}
+			}
+		}
+
+		private draw() {
+			this.ctx.fillStyle = '#000000';
+			this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+			const centerX = this.canvas.width / 2;
+			const centerY = this.canvas.height / 2;
+
+			this.ctx.strokeStyle = '#FFFFFF';
+			this.ctx.fillStyle = '#FFFFFF';
+
+			for (let i = 0; i < this.stars.length; i++) {
+				const star = this.stars[i];
+				
+				// Calculate 2D position
+				const k = 128 / star.z;
+				const px = star.x * k + centerX;
+				const py = star.y * k + centerY;
+
+				// Calculate size based on depth
+				const size = (1 - star.z / this.maxDepth) * 2;
+				
+				// Only draw if on screen
+				if (px >= 0 && px <= this.canvas.width && py >= 0 && py <= this.canvas.height) {
+					this.ctx.beginPath();
+					this.ctx.arc(px, py, size, 0, Math.PI * 2);
+					this.ctx.fill();
+				}
+			}
+		}
+
+		private animate() {
+			this.update();
+			this.draw();
+			this.animationId = requestAnimationFrame(() => this.animate());
+		}
+
+		public destroy() {
+			if (this.animationId !== null) {
+				cancelAnimationFrame(this.animationId);
+			}
+		}
+	}
+
+	// Initialize starfield when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', () => {
+			new Starfield('starfield-canvas');
+		});
+	} else {
+		new Starfield('starfield-canvas');
+	}
+</script>
+
