@@ -1,6 +1,6 @@
-# Outorbit Games Website
+# Outorbit Website
 
-A minimal, atmospheric landing page for Outorbit Games built with Astro and Tailwind CSS.
+A minimal, atmospheric landing page for Outorbit built with Astro and Tailwind CSS.
 
 ## 🚀 Features
 
@@ -68,7 +68,8 @@ This site is deployed on Netlify and connected to the `outorbit.games` domain.
 ## 🎨 Brand Guidelines
 
 - **Colors**: Black (#000000) background, White (#FFFFFF) text, optional accent (#B0F0FF)
-- **Typography**: Inter (or Geist Sans, Space Grotesk)
+- **Typography**: Syne
+- **Philosophy**: Refining genres rather than inventing them. Innovation through graceful evolution, staying close to what feels familiar and pushing it just far enough to feel new again.
 - **Tone**: Independent, confident, mysterious, creative, quietly ambitious
 
 ## 📧 Contact
@@ -77,4 +78,4 @@ hello@outorbit.games
 
 ---
 
-© Outorbit Games • All Rights Reserved
+© Outorbit • All Rights Reserved

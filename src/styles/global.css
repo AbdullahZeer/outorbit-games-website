@@ -8,12 +8,36 @@
 	}
 
 	html {
-		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+		font-family: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
 
 	body {
+		font-size: 16px;
+		line-height: 1.5;
 		overflow-x: hidden;
+	}
+
+	/* Typography hierarchy */
+	h1 {
+		font-size: 2em;
+		line-height: 1.2;
+		font-weight: 400;
+	}
+
+	h2 {
+		font-size: 1.5em;
+		line-height: 1.3;
+	}
+
+	p {
+		line-height: 1.6;
+		max-width: 65ch; /* Optimal reading measure */
+	}
+
+	/* Ensure readable line length */
+	main {
+		max-width: 100%;
 	}
 }

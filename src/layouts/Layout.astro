@@ -6,7 +6,7 @@ interface Props {
 	description?: string;
 }
 
-const { title, description = "Outorbit Games is an independent game studio exploring atmospheric, story-driven worlds beyond orbit." } = Astro.props;
+const { title, description = "Outorbit is an independent studio exploring beyond orbit. We refine genres, push their limits, and find quiet innovation within familiar forms." } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,16 +15,17 @@ const { title, description = "Outorbit Games is an independent game studio explo
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="apple-touch-icon" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet" />
 		
 		<!-- Primary Meta Tags -->
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
-		<meta name="keywords" content="indie game studio, space exploration games, atmospheric indie games, outorbit, outorbit games" />
+		<meta name="keywords" content="indie game studio, genre refinement, innovative games, atmospheric indie games, outorbit, graceful evolution" />
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />

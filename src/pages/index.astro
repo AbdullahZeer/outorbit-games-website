@@ -2,9 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Starfield from '../components/Starfield.astro';
 import Logo from '../components/Logo.astro';
+import { Mail } from 'lucide-astro';
+import XIcon from '../components/icons/XIcon.astro';
+import TikTokIcon from '../components/icons/TikTokIcon.astro';
+import YoutubeIcon from '../components/icons/YoutubeIcon.astro';
 
-const title = "Outorbit Games — Exploring Beyond Orbit";
-const description = "Outorbit Games is an independent game studio exploring atmospheric, story-driven worlds beyond orbit.";
+const title = "Outorbit — Exploring Beyond Orbit";
+const description = "Outorbit is an independent studio exploring beyond orbit. We refine genres, push their limits, and find quiet innovation within familiar forms.";
 ---
 
 <Layout title={title} description={description}>
@@ -17,16 +21,26 @@ const description = "Outorbit Games is an independent game studio exploring atmo
 		</div>
 
 		<!-- Main Content Card -->
-		<div class="w-full max-w-[700px] backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-8 md:p-12 shadow-2xl animate-fade-in-delay">
+		<div class="w-full max-w-[65ch] backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-8 md:p-12 shadow-2xl animate-fade-in-delay">
 			<!-- Studio Name -->
 			<h1 class="text-3xl md:text-4xl font-light mb-6 text-center tracking-wide">
-				Outorbit Games
+				Outorbit
 			</h1>
 
-			<!-- Tagline -->
-			<p class="text-lg md:text-xl text-gray-300 text-center mb-8 leading-relaxed">
-				Independent game studio exploring beyond orbit.
+			<!-- Title/Tagline -->
+			<p class="text-lg md:text-xl text-gray-300 text-center mb-6 leading-relaxed">
+				Outorbit is an independent studio exploring beyond orbit.
 			</p>
+
+			<!-- Studio Philosophy -->
+			<div class="text-base md:text-lg text-gray-300 text-center mb-8 leading-relaxed max-w-[65ch] mx-auto">
+				<p class="mb-2">
+					At Outorbit, we don't aim to invent new genres. We refine them.
+				</p>
+				<p>
+					We believe innovation happens when we stay close to what feels familiar and push it just far enough to feel new again.
+				</p>
+			</div>
 
 			<!-- Status Line -->
 			<p class="text-base md:text-lg text-gray-400 text-center mb-10 italic">
@@ -36,10 +50,11 @@ const description = "Outorbit Games is an independent game studio exploring atmo
 			<!-- Contact -->
 			<div class="text-center mb-10">
 				<a
-					href="mailto:hello@outorbit.games"
-					class="inline-block text-white hover:text-[#B0F0FF] transition-colors duration-300 underline decoration-white/30 hover:decoration-[#B0F0FF]/50 underline-offset-4"
+					href="mailto:contact@outorbit.games"
+					class="inline-flex items-center gap-2 text-white hover:text-[#B0F0FF] transition-colors duration-300 underline decoration-white/30 hover:decoration-[#B0F0FF]/50 underline-offset-4"
 				>
-					hello@outorbit.games
+					<Mail class="w-4 h-4" />
+					contact@outorbit.games
 				</a>
 			</div>
 
@@ -49,47 +64,35 @@ const description = "Outorbit Games is an independent game studio exploring atmo
 					href="https://twitter.com/outorbitgames"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
-					aria-label="Twitter"
+					class="text-gray-400 hover:text-white transition-colors duration-300"
+					aria-label="X (Twitter)"
 				>
-					Twitter
+					<XIcon class="w-5 h-5" />
 				</a>
-				<span class="text-gray-600">•</span>
 				<a
-					href="https://outorbitgames.itch.io"
+					href="https://tiktok.com/@outorbitgames"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
-					aria-label="Itch.io"
+					class="text-gray-400 hover:text-white transition-colors duration-300"
+					aria-label="TikTok"
 				>
-					Itch.io
+					<TikTokIcon class="w-5 h-5" />
 				</a>
-				<span class="text-gray-600">•</span>
 				<a
 					href="https://youtube.com/@outorbitgames"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+					class="text-gray-400 hover:text-white transition-colors duration-300"
 					aria-label="YouTube"
 				>
-					YouTube
-				</a>
-				<span class="text-gray-600">•</span>
-				<a
-					href="https://discord.gg/outorbitgames"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
-					aria-label="Discord"
-				>
-					Discord
+					<YoutubeIcon class="w-5 h-5" />
 				</a>
 			</div>
 		</div>
 
 		<!-- Footer -->
 		<footer class="mt-16 text-center text-gray-500 text-sm animate-fade-in-delay-2">
-			<p>© Outorbit Games • All Rights Reserved</p>
+			<p>© Outorbit • All Rights Reserved</p>
 		</footer>
 	</main>
 </Layout>
