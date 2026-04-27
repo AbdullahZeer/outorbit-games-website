@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ChevronDown } from 'lucide-astro';
+
+const title = 'H.Y.P.E — Highschool Youkai Patrol & Exorcism | Outorbit Games';
+const description =
+	'H.Y.P.E is an anime-inspired online co-op comedy-horror game set in a Japanese high school. By day, players gather rumors and prepare as a team. By night, they seal cursed anchors and survive escalating yokai pressure. PC · Unity · Outorbit Games.';
+---
+
+<Layout title={title} description={description} ogImage="/hype/hero.png">
+	<div class="font-mono-annotation bg-black text-white [&_p]:max-w-none">
+		<!-- Hero: full-bleed capsule + subtle bottom fade + black band below art -->
+		<section class="bg-black" aria-label="H.Y.P.E key art">
+			<div class="relative h-[calc(100svh-5rem)] w-full min-h-[20rem] overflow-hidden md:h-[calc(100svh-6rem)]">
+				<img
+					src="/hype/hero.png"
+					alt="HYPE: Highschool Youkai Patrol & Exorcism — students with flashlights before a haunted school at night"
+					class="absolute inset-0 h-full w-full object-cover object-[center_32%]"
+					width="4096"
+					height="2023"
+					fetchpriority="high"
+				/>
+				<!-- Strong fade in a short band at the bottom only (~12% height) -->
+				<div
+					class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0)_88%,rgba(0,0,0,0.45)_93%,rgba(0,0,0,0.82)_97%,#000_100%)]"
+					aria-hidden="true"
+				/>
+				<p class="sr-only">H.Y.P.E — scroll for press information.</p>
+				<div
+					class="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-white/40"
+					aria-hidden="true"
+				>
+					<span class="text-xs uppercase tracking-[0.2em]">Scroll</span>
+					<ChevronDown class="h-6 w-6 animate-bounce" aria-hidden="true" />
+				</div>
+			</div>
+			<div class="h-14 w-full shrink-0 bg-black md:h-20" aria-hidden="true" />
+		</section>
+
+		<main>
+			<!-- About the Game -->
+			<section class="mx-auto max-w-5xl px-6 py-20 md:px-10" id="about">
+				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">About the Game</h2>
+				<p class="mb-10 max-w-none text-base leading-relaxed text-white md:text-lg">
+					H.Y.P.E is an anime-inspired online co-op comedy-horror game set in a Japanese high school. By day, players
+					gather rumors, investigate strange incidents, and prepare as a team. By night, the school transforms into a
+					warped supernatural space where players must locate and seal a cursed anchor object while surviving
+					escalating yokai pressure.
+				</p>
+				<ul class="list-none space-y-3 text-base text-white md:text-lg">
+					<li>• Genre: Online co-op comedy-horror (firendslop)</li>
+					<li>• Players: 1–4 online co-op</li>
+					<li>• Setting: Japanese high school</li>
+					<li>• Platforms: PC</li>
+					<li>• Engine: Unity</li>
+					<li>• Developer: Outorbit Games</li>
+					<li>• Status: In development</li>
+				</ul>
+			</section>
+
+			<!-- Key features -->
+			<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-20 md:px-10" id="features">
+				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">Key features</h2>
+				<ul class="list-none space-y-3 text-base text-white md:text-lg">
+					<li>• Daytime rumor gathering and team preparation</li>
+					<li>• Nighttime exploration in a distorted school</li>
+					<li>• Team-based tape sealing under pressure</li>
+					<li>• Japanese folklore-inspired yokai cases</li>
+					<li>
+						• Readable co-op roles where one seals and others defend, distract, and call out
+					</li>
+				</ul>
+			</section>
+
+			<!-- Concept Art -->
+			<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-20 md:px-10" id="concept-art">
+				<h2 class="font-mono-annotation-bold mb-10 text-2xl text-[#DF3D1A] md:text-3xl">Concept Art</h2>
+				<div class="grid gap-10 md:grid-cols-2 md:gap-8">
+					<div class="border border-white/10 bg-black">
+						<img
+							src="/hype/concept-uniforms.jpg"
+							alt="Character lineup in school uniforms with blue collars, holding charms and a flashlight"
+							class="block w-full h-auto"
+							width="1600"
+							height="900"
+							loading="lazy"
+						/>
+					</div>
+					<div class="border border-white/10 bg-black">
+						<img
+							src="/hype/concept-yurei.jpg"
+							alt="Yūrei concept — pale blue skin, tattered robe, cold breath and aura effects"
+							class="block w-full h-auto"
+							width="1600"
+							height="900"
+							loading="lazy"
+						/>
+					</div>
+				</div>
+			</section>
+
+			<!-- Studio -->
+			<section
+				class="mx-auto max-w-5xl border-t border-white/10 px-6 py-24 text-center md:px-10"
+				id="studio"
+			>
+				<img src="/logo.svg" alt="Outorbit Games" class="mx-auto mb-6 h-16 w-16 md:h-20 md:w-20" width="80" height="80" />
+				<p class="font-mono-annotation-bold mx-auto mb-2 text-xl text-white md:text-2xl">Outorbit Games</p>
+				<p class="mx-auto mb-4 text-base text-white/90">Riyadh, Saudi Arabia</p>
+				<a
+					href="mailto:contact@outorbit.games"
+					class="text-[#DF3D1A] underline decoration-[#DF3D1A]/40 underline-offset-4 transition-colors hover:text-white hover:decoration-white/50"
+				>
+					contact@outorbit.games
+				</a>
+				<p class="font-mono-annotation-bold mx-auto mt-14 text-3xl text-[#DF3D1A] md:text-4xl">Thank You</p>
+				<p class="mx-auto mt-16 text-sm text-white/50">© Outorbit • All Rights Reserved</p>
+			</section>
+		</main>
+	</div>
+</Layout>

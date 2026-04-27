@@ -4,9 +4,23 @@ import '../styles/global.css';
 interface Props {
 	title: string;
 	description?: string;
+	/** Path (e.g. `/hype/hero.png`) or full URL for Open Graph / Twitter cards */
+	ogImage?: string;
 }
 
-const { title, description = "Outorbit is an independent studio exploring beyond orbit. We refine genres, push their limits, and find quiet innovation within familiar forms." } = Astro.props;
+const siteOrigin = 'https://outorbit.games';
+
+const {
+	title,
+	description = "Outorbit is an independent studio exploring beyond orbit. We refine genres, push their limits, and find quiet innovation within familiar forms.",
+	ogImage,
+} = Astro.props;
+
+const resolvedOgImage = ogImage
+	? ogImage.startsWith('http://') || ogImage.startsWith('https://')
+		? ogImage
+		: `${siteOrigin}${ogImage.startsWith('/') ? ogImage : `/${ogImage}`}`
+	: null;
 ---
 
 <!doctype html>
@@ -32,11 +46,13 @@ const { title, description = "Outorbit is an independent studio exploring beyond
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content="https://outorbit.games" />
+		{resolvedOgImage && <meta property="og:image" content={resolvedOgImage} />}
 		
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
+		{resolvedOgImage && <meta property="twitter:image" content={resolvedOgImage} />}
 	</head>
 	<body class="bg-black text-white min-h-screen">
 		<slot />

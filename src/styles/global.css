@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+/* AnnotationMono variable — used on /hype (homepage stays Syne) */
+@font-face {
+	font-family: 'AnnotationMono';
+	src: url('/fonts/AnnotationMono-VF.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+.font-mono-annotation {
+	font-family: 'AnnotationMono', ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+	font-variation-settings: 'wght' 400;
+}
+
+.font-mono-annotation-bold {
+	font-family: 'AnnotationMono', ui-monospace, 'Cascadia Code', 'Consolas', monospace;
+	font-variation-settings: 'wght' 700;
+}
+
 @layer base {
 	* {
 		margin: 0;
