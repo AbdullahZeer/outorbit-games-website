@@ -11,11 +11,11 @@ const description =
 	<div class="font-mono-annotation bg-black text-white [&_p]:max-w-none">
 		<!-- Hero: full-bleed capsule + subtle bottom fade + black band below art -->
 		<section class="bg-black" aria-label="H.Y.P.E key art">
-			<div class="relative h-[calc(100svh-5rem)] w-full min-h-[20rem] overflow-hidden md:h-[calc(100svh-6rem)]">
+			<div class="relative h-[clamp(20rem,85vw,calc(100svh-5rem))] w-full overflow-hidden md:h-[calc(100svh-6rem)]">
 				<img
 					src="/hype/hero.png"
 					alt="HYPE: Highschool Youkai Patrol & Exorcism — students with flashlights before a haunted school at night"
-					class="absolute inset-0 h-full w-full object-cover object-[center_32%]"
+					class="absolute inset-0 h-full w-full object-cover object-[left_32%] md:object-[center_32%]"
 					width="4096"
 					height="2023"
 					fetchpriority="high"
