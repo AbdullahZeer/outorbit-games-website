@@ -1,0 +1,34 @@
+---
+import SlideChrome from '../SlideChrome.astro';
+---
+
+<SlideChrome>
+	<div class="flex h-full flex-col justify-between">
+		<div>
+			<p class="pitch-bold mb-2 text-[clamp(0.65rem,1.1vw,0.8rem)] tracking-[0.22em] text-[var(--pitch-gold-deep)] uppercase">
+				Positioning
+			</p>
+			<h2 class="pitch-bold max-w-[20ch] text-[clamp(1.4rem,3.2vw,2.4rem)] leading-[1.05]">
+				Low density. Proven upside.
+			</h2>
+			<p class="mt-4 max-w-[48ch] text-[clamp(0.85rem,1.4vw,1.05rem)] leading-relaxed text-[var(--pitch-ink-muted)]">
+				Anime alone and horror alone are crowded. Online co-op is competitive. The triple overlap —
+				anime + horror + online co-op — is rare, with only a handful of released games and strong top-decile review counts.
+			</p>
+		</div>
+		<div class="grid gap-3 border-t border-black/10 pt-5 sm:grid-cols-3">
+			<div>
+				<p class="pitch-bold text-[clamp(1.4rem,3vw,2rem)] text-[var(--pitch-red)]">8</p>
+				<p class="text-[clamp(0.75rem,1.15vw,0.9rem)] text-[var(--pitch-ink-muted)]">released games in the target lane</p>
+			</div>
+			<div>
+				<p class="pitch-bold text-[clamp(1.4rem,3vw,2rem)] text-[var(--pitch-gold-deep)]">3,395</p>
+				<p class="text-[clamp(0.75rem,1.15vw,0.9rem)] text-[var(--pitch-ink-muted)]">top-10% review mark in-lane</p>
+			</div>
+			<div>
+				<p class="pitch-bold text-[clamp(1.4rem,3vw,2rem)]">vs 63k</p>
+				<p class="text-[clamp(0.75rem,1.15vw,0.9rem)] text-[var(--pitch-ink-muted)]">all released games baseline</p>
+			</div>
+		</div>
+	</div>
+</SlideChrome>

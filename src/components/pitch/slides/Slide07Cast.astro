@@ -1,0 +1,31 @@
+---
+import SlideChrome from '../SlideChrome.astro';
+---
+
+<SlideChrome>
+	<div class="grid h-full gap-4 md:grid-cols-[0.95fr_1.05fr] md:gap-6">
+		<div class="flex flex-col justify-center">
+			<p class="pitch-bold mb-2 text-[clamp(0.65rem,1.1vw,0.8rem)] tracking-[0.22em] text-[var(--pitch-gold-deep)] uppercase">
+				The patrol
+			</p>
+			<h2 class="pitch-bold text-[clamp(1.35rem,3vw,2.2rem)] leading-[1.05]">
+				Students first. Exorcists second.
+			</h2>
+			<p class="mt-4 max-w-[36ch] text-[clamp(0.85rem,1.35vw,1.05rem)] leading-relaxed text-[var(--pitch-ink-muted)]">
+				A small high-school crew with flashlights, rumors, and barely enough courage — readable silhouettes,
+				strong roles, and comedy-horror chemistry at the center of the fantasy.
+			</p>
+		</div>
+		<div class="relative min-h-[11rem] overflow-hidden border border-black/15 bg-black">
+			<img
+				src="/hype/pitch/art/uniforms.webp"
+				alt="Character lineup in school uniforms"
+				class="absolute inset-0 h-full w-full object-cover object-center"
+				width="1400"
+				height="788"
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+	</div>
+</SlideChrome>

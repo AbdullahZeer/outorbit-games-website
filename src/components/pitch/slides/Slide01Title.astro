@@ -1,0 +1,36 @@
+---
+import SlideChrome from '../SlideChrome.astro';
+---
+
+<SlideChrome showCornerTape={false}>
+	<div class="relative flex h-full flex-col overflow-hidden">
+		<img
+			src="/hype/pitch/art/hero.webp"
+			alt=""
+			class="absolute inset-0 h-full w-full object-cover object-[center_32%]"
+			width="1600"
+			height="900"
+			fetchpriority="high"
+			decoding="async"
+			aria-hidden="true"
+		/>
+		<div
+			class="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.15)_0%,rgba(0,0,0,0.35)_45%,rgba(0,0,0,0.88)_100%)]"
+			aria-hidden="true"
+		></div>
+		<div class="relative z-10 mt-auto flex flex-col gap-2 p-[clamp(1.25rem,3.2vw,2.75rem)] text-white">
+			<p class="pitch-bold text-[clamp(0.7rem,1.4vw,0.95rem)] tracking-[0.28em] text-[#e6d4a8] uppercase">
+				Outorbit Games
+			</p>
+			<h1 class="pitch-bold text-[clamp(2rem,5.5vw,4.25rem)] leading-[0.95] tracking-tight">
+				H.Y.P.E
+			</h1>
+			<p class="max-w-xl text-[clamp(0.85rem,1.6vw,1.15rem)] text-white/85">
+				Highschool Youkai Patrol &amp; Exorcism
+			</p>
+			<p class="mt-2 text-[clamp(0.7rem,1.2vw,0.85rem)] tracking-wide text-white/55 uppercase">
+				Investor pitch · Confidential
+			</p>
+		</div>
+	</div>
+</SlideChrome>

@@ -1,0 +1,25 @@
+---
+/**
+ * Shared slide chrome: paper surface + optional tape accents.
+ * Each SlideNN fills the default slot.
+ */
+import Tape from './Tape.astro';
+
+interface Props {
+	showCornerTape?: boolean;
+}
+
+const { showCornerTape = true } = Astro.props;
+---
+
+<div class="pitch-slide-frame">
+	{showCornerTape && (
+		<>
+			<Tape src="/hype/pitch/tape/strip-short.svg" class="left-4 -top-1 w-28 rotate-[-8deg] md:left-6 md:w-32" />
+			<Tape src="/hype/pitch/tape/strip-thin.svg" class="right-5 -top-0.5 w-24 rotate-[6deg] md:right-8 md:w-28" />
+		</>
+	)}
+	<div class="pitch-slide-inner">
+		<slot />
+	</div>
+</div>

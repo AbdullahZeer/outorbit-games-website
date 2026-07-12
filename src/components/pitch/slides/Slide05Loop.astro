@@ -1,0 +1,40 @@
+---
+import SlideChrome from '../SlideChrome.astro';
+---
+
+<SlideChrome>
+	<div class="flex h-full flex-col">
+		<p class="pitch-bold mb-2 text-[clamp(0.65rem,1.1vw,0.8rem)] tracking-[0.22em] text-[var(--pitch-gold-deep)] uppercase">
+			Core loop
+		</p>
+		<h2 class="pitch-bold mb-5 text-[clamp(1.4rem,3.2vw,2.35rem)] leading-[1.05]">
+			Day prepares. Night pressures.
+		</h2>
+		<div class="grid min-h-0 flex-1 gap-4 md:grid-cols-2 md:gap-6">
+			<section class="flex flex-col border border-black/12 bg-[var(--pitch-paper-deep)] p-4 md:p-5">
+				<p class="pitch-bold text-[clamp(0.7rem,1.2vw,0.85rem)] tracking-[0.18em] text-[var(--pitch-gold-deep)] uppercase">
+					Day
+				</p>
+				<h3 class="pitch-bold mt-2 text-[clamp(1.1rem,2.2vw,1.5rem)]">Rumor &amp; prep</h3>
+				<ul class="mt-3 space-y-2 text-[clamp(0.8rem,1.25vw,0.98rem)] leading-relaxed text-[var(--pitch-ink-muted)]">
+					<li>• Gather rumors across campus</li>
+					<li>• Investigate strange incidents as a team</li>
+					<li>• Choose loadout and sealing roles</li>
+					<li>• Spot the night’s cursed anchor leads</li>
+				</ul>
+			</section>
+			<section class="flex flex-col border border-black/12 bg-[#1a1a1a] p-4 text-[var(--pitch-paper)] md:p-5">
+				<p class="pitch-bold text-[clamp(0.7rem,1.2vw,0.85rem)] tracking-[0.18em] text-[var(--pitch-red)] uppercase">
+					Night
+				</p>
+				<h3 class="pitch-bold mt-2 text-[clamp(1.1rem,2.2vw,1.5rem)]">Seal under pressure</h3>
+				<ul class="mt-3 space-y-2 text-[clamp(0.8rem,1.25vw,0.98rem)] leading-relaxed text-white/75">
+					<li>• School warps into a supernatural space</li>
+					<li>• Locate and seal the cursed anchor</li>
+					<li>• Survive escalating yokai pressure</li>
+					<li>• One seals — others defend, distract, call out</li>
+				</ul>
+			</section>
+		</div>
+	</div>
+</SlideChrome>

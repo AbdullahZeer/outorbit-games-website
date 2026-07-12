@@ -1,0 +1,76 @@
+---
+import { pitchSlides } from '../../data/pitchSlides';
+import Slide01Title from './slides/Slide01Title.astro';
+import Slide02Hook from './slides/Slide02Hook.astro';
+import Slide03Opportunity from './slides/Slide03Opportunity.astro';
+import Slide04Overview from './slides/Slide04Overview.astro';
+import Slide05Loop from './slides/Slide05Loop.astro';
+import Slide06Features from './slides/Slide06Features.astro';
+import Slide07Cast from './slides/Slide07Cast.astro';
+import Slide08Yokai from './slides/Slide08Yokai.astro';
+import Slide09Positioning from './slides/Slide09Positioning.astro';
+import Slide10Studio from './slides/Slide10Studio.astro';
+import Slide11Status from './slides/Slide11Status.astro';
+import Slide12Thanks from './slides/Slide12Thanks.astro';
+
+const slides = [
+	Slide01Title,
+	Slide02Hook,
+	Slide03Opportunity,
+	Slide04Overview,
+	Slide05Loop,
+	Slide06Features,
+	Slide07Cast,
+	Slide08Yokai,
+	Slide09Positioning,
+	Slide10Studio,
+	Slide11Status,
+	Slide12Thanks,
+];
+
+const prefetchMap = JSON.stringify(pitchSlides.map((s) => s.prefetch ?? []));
+const titlesJson = JSON.stringify(pitchSlides.map((s) => s.title));
+---
+
+<div
+	id="pitch-deck"
+	class="pitch-root relative flex min-h-svh flex-col items-center justify-center gap-3 px-3 py-3 md:gap-4 md:px-6"
+	hidden
+	data-slide-count={slides.length}
+	data-prefetch={prefetchMap}
+	data-titles={titlesJson}
+>
+	<div class="relative flex w-full max-w-[1400px] flex-1 items-center justify-center">
+		<button type="button" class="pitch-nav-btn absolute left-0 z-20 md:left-2" id="pitch-prev" aria-label="Previous slide">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+				<path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="square"></path>
+			</svg>
+		</button>
+
+		<div id="pitch-stage" class="mx-auto w-full max-w-[min(100%,calc(100svh*16/9))]">
+			{
+				slides.map((Slide, i) => (
+					<div
+						class="pitch-slide-panel"
+						data-slide-index={i}
+						hidden={i !== 0}
+						style={i === 0 ? undefined : 'content-visibility: auto'}
+					>
+						<Slide />
+					</div>
+				))
+			}
+		</div>
+
+		<button type="button" class="pitch-nav-btn absolute right-0 z-20 md:right-2" id="pitch-next" aria-label="Next slide">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+				<path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="square"></path>
+			</svg>
+		</button>
+	</div>
+
+	<div class="flex w-full max-w-[1400px] items-center justify-between gap-3 px-1 text-xs text-white/55 md:text-sm">
+		<p id="pitch-slide-title" class="truncate tracking-wide uppercase">{pitchSlides[0]?.title ?? ''}</p>
+		<p id="pitch-slide-counter" class="shrink-0 tabular-nums" aria-live="polite">1 / {slides.length}</p>
+	</div>
+</div>

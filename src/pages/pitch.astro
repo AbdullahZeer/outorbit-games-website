@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PitchGate from '../components/pitch/PitchGate.astro';
+import SlideViewer from '../components/pitch/SlideViewer.astro';
+import '../styles/pitch.css';
+import { createHash } from 'node:crypto';
+
+const title = 'H.Y.P.E Pitch Deck | Outorbit Games';
+const description = 'Password-protected investor pitch deck for H.Y.P.E by Outorbit Games.';
+
+/**
+ * Shared password from Netlify / local .env (never commit the real value).
+ * Only the SHA-256 hash is embedded in the client for the soft gate.
+ */
+const password = import.meta.env.PITCH_PASSWORD ?? '';
+const passwordHash = password
+	? createHash('sha256').update(password, 'utf8').digest('hex')
+	: '';
+---
+
+<Layout title={title} description={description} ogImage="/hype/pitch/art/hero-sm.webp" noindex={true} skipSyne={true}>
+	<a href="#pitch-stage" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:px-3 focus:py-2 focus:text-black">
+		Skip to slides
+	</a>
+	<PitchGate passwordHash={passwordHash} />
+	<SlideViewer />
+	<script>
+		import '../scripts/pitch-client.ts';
+	</script>
+</Layout>

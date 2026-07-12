@@ -18,7 +18,9 @@
 2. **Configure Build Settings (should auto-detect):**
    - Build command: `npm run build`
    - Publish directory: `dist`
-   - Environment variable: `OUTORBIT_ENV=production`
+   - Environment variables:
+     - `OUTORBIT_ENV=production`
+     - `PITCH_PASSWORD` — shared password that unlocks `/pitch` (required for the pitch deck gate; only a SHA-256 hash is baked into the static page)
 
 3. **Deploy:**
    - Click "Deploy site"
