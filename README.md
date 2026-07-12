@@ -22,6 +22,9 @@ A minimal, atmospheric landing page for Outorbit built with Astro and Tailwind C
 # Install dependencies
 npm install
 
+# Local env (pitch deck password) — copy then edit
+cp .env.example .env
+
 # Start dev server
 npm run dev
 
@@ -31,6 +34,10 @@ npm run build
 # Preview production build
 npm run preview
 ```
+
+### Pitch deck (`/pitch`)
+
+Password-gated, slide-by-slide H.Y.P.E investor deck. Set `PITCH_PASSWORD` in `.env` locally and in Netlify env for production. Navigate with ←/→, Space, or on-screen arrows. To add/edit slides: update `src/components/pitch/slides/` and `src/data/pitchSlides.ts`, then push to deploy.
 
 ## 🌐 Deployment
 

@@ -1,0 +1,89 @@
+---
+import SlideChrome from '../SlideChrome.astro';
+import Tape from '../Tape.astro';
+
+const team = [
+	{
+		img: '/hype/pitch/art/team-1.webp',
+		name: 'Abdullah Alzeer',
+		role: 'Creative Lead\n+ Technical Lead',
+	},
+	{
+		img: '/hype/pitch/art/team-geniro.webp',
+		name: 'Geniro Rivera',
+		role: 'Lead 2d Artist',
+		fallback: '/hype/pitch/art/team-2.webp',
+	},
+	{
+		img: '/hype/pitch/art/team-chillifish.webp',
+		name: 'Chillifish',
+		role: 'Lead 3D Artist',
+		fallback: '/hype/pitch/art/team-3.webp',
+	},
+	{
+		img: '/hype/pitch/art/team-4.webp',
+		name: 'eliasSh',
+		role: 'Music Composer',
+	},
+];
+---
+
+<SlideChrome>
+	<div class="flex h-full flex-col">
+		<div class="flex items-end gap-3">
+			<div>
+				<h2 class="pitch-title">The Team</h2>
+				<div class="mt-2 flex items-center gap-2">
+					<img
+						src="/hype/pitch/art/outorbit-logo.webp"
+						alt=""
+						class="h-7 w-7 object-contain md:h-8 md:w-8"
+						width="40"
+						height="40"
+						loading="lazy"
+						decoding="async"
+					/>
+					<span class="pitch-bold text-[clamp(0.8rem,1.4vw,1.05rem)]">Outorbit Games</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="mt-[clamp(1rem,3.5vh,2rem)] grid flex-1 grid-cols-4 gap-3 md:gap-5">
+			{
+				team.map((m, i) => (
+					<figure class="flex flex-col">
+						<div class="relative aspect-square w-full overflow-hidden bg-[#1a1a1a]">
+							<img
+								src={m.img}
+								alt={m.name}
+								class="h-full w-full object-cover object-top"
+								width="400"
+								height="400"
+								loading="lazy"
+								decoding="async"
+							/>
+							<div class="absolute inset-x-1 bottom-1 flex min-h-[1.7rem] items-center justify-center md:inset-x-2">
+								<Tape
+									src="/hype/pitch/tape/strip-mid.webp"
+									class="absolute inset-0 h-full w-full object-fill"
+									style={`transform: rotate(${i % 2 === 0 ? '-1.5deg' : '1.5deg'})`}
+								/>
+								<span class="pitch-bold relative z-10 px-1 text-center text-[clamp(0.48rem,0.85vw,0.7rem)] text-black">
+									{m.name}
+								</span>
+							</div>
+						</div>
+						<p class="pitch-body mt-2 whitespace-pre-line text-[clamp(0.55rem,0.95vw,0.75rem)] leading-snug">
+							{m.role}
+						</p>
+					</figure>
+				))
+			}
+		</div>
+
+		<p class="pitch-body mt-auto max-w-[52rem] pt-3">
+			Our combined expertise covers creative direction, technical implementation, UX/UI, 2D/3D production and music giving
+			HYPE the foundation to become a polished co-op anime-horror experience.
+		</p>
+	</div>
+</SlideChrome>

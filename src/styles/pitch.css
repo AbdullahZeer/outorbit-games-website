@@ -1,0 +1,217 @@
+/* HYPE pitch deck — black presentation surface matching Pitch Deck_polden_draft */
+.pitch-root {
+	--pitch-bg: #000000;
+	--pitch-ink: #ffffff;
+	--pitch-ink-muted: #c8c8c8;
+	--pitch-cream: #e6d4a8;
+	--pitch-tape: #e6d4a8;
+	--pitch-accent: #df3d1a;
+	--pitch-accent-soft: #e65c41;
+	--pitch-border: #2a2a2a;
+	--pitch-paper: #f4f1ea;
+	--pitch-paper-ink: #1a1a1a;
+	--pitch-gold: #c9a227;
+	font-family: 'AnnotationMono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+	font-variation-settings: 'wght' 400;
+	color: var(--pitch-ink);
+	background: #0a0a0a;
+}
+
+.pitch-root .pitch-bold {
+	font-variation-settings: 'wght' 700;
+}
+
+.pitch-slide-frame {
+	aspect-ratio: 16 / 9;
+	width: min(100%, calc(100svh * 16 / 9));
+	max-height: 100svh;
+	background: var(--pitch-bg);
+	border: 1px solid var(--pitch-border);
+	border-radius: 6px;
+	box-shadow:
+		0 0 0 1px rgba(255, 255, 255, 0.04),
+		0 18px 50px rgba(0, 0, 0, 0.55);
+	position: relative;
+	overflow: hidden;
+	color: var(--pitch-ink);
+}
+
+.pitch-slide-inner {
+	position: absolute;
+	inset: 0;
+	padding: clamp(1.1rem, 3vw, 2.5rem);
+	box-sizing: border-box;
+}
+
+.pitch-slide-inner.is-bleed {
+	padding: 0;
+}
+
+.pitch-title {
+	color: var(--pitch-accent);
+	font-variation-settings: 'wght' 700;
+	font-size: clamp(1.35rem, 2.8vw, 2.15rem);
+	line-height: 1.15;
+	letter-spacing: 0.01em;
+}
+
+.pitch-subtitle {
+	color: var(--pitch-ink);
+	font-size: clamp(0.85rem, 1.55vw, 1.15rem);
+	line-height: 1.35;
+	margin-top: 0.35rem;
+}
+
+.pitch-body {
+	color: var(--pitch-ink);
+	font-size: clamp(0.72rem, 1.25vw, 0.98rem);
+	line-height: 1.55;
+}
+
+.pitch-muted {
+	color: var(--pitch-cream);
+}
+
+.pitch-tape {
+	position: absolute;
+	pointer-events: none;
+	user-select: none;
+	opacity: 0.96;
+	filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
+}
+
+.pitch-tape-label {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 1.6rem;
+	padding: 0.2rem 0.85rem;
+	color: #1a1a1a;
+	font-variation-settings: 'wght' 700;
+	font-size: clamp(0.58rem, 1vw, 0.78rem);
+	line-height: 1.2;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.pitch-tape-label::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background: center / 100% 100% no-repeat url('/hype/pitch/tape/strip-mid.webp');
+	z-index: -1;
+	filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+}
+
+.pitch-shot {
+	border: 1.5px solid #fff;
+	overflow: hidden;
+	background: #111;
+}
+
+.pitch-nav-btn {
+	appearance: none;
+	border: 1px solid rgba(255, 255, 255, 0.22);
+	background: rgba(20, 20, 20, 0.72);
+	color: #fff;
+	width: 2.75rem;
+	height: 2.75rem;
+	display: grid;
+	place-items: center;
+	border-radius: 999px;
+	cursor: pointer;
+	backdrop-filter: blur(8px);
+	transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.pitch-nav-btn:hover:not(:disabled) {
+	background: rgba(40, 40, 40, 0.9);
+	border-color: rgba(255, 255, 255, 0.4);
+}
+
+.pitch-nav-btn:active:not(:disabled) {
+	transform: scale(0.96);
+}
+
+.pitch-nav-btn:disabled {
+	opacity: 0.35;
+	cursor: default;
+}
+
+.pitch-gate-card {
+	background: var(--pitch-bg);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 10px;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+	max-width: 26rem;
+	width: calc(100% - 2rem);
+	padding: 2rem 1.75rem 1.75rem;
+	position: relative;
+	color: var(--pitch-ink);
+}
+
+.pitch-input {
+	width: 100%;
+	border: 1.5px solid rgba(255, 255, 255, 0.25);
+	background: #111;
+	color: var(--pitch-ink);
+	padding: 0.7rem 0.85rem;
+	font: inherit;
+	font-size: 1rem;
+	border-radius: 4px;
+	outline: none;
+}
+
+.pitch-input:focus {
+	border-color: var(--pitch-accent);
+	box-shadow: 0 0 0 3px rgba(223, 61, 26, 0.25);
+}
+
+.pitch-submit {
+	appearance: none;
+	border: none;
+	background: var(--pitch-accent);
+	color: #fff;
+	font: inherit;
+	font-variation-settings: 'wght' 700;
+	padding: 0.75rem 1rem;
+	width: 100%;
+	cursor: pointer;
+	border-radius: 4px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	transition: background 0.2s ease;
+}
+
+.pitch-submit:hover {
+	background: #c73416;
+}
+
+@keyframes pitch-fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.pitch-fade-in {
+	animation: pitch-fade-in 0.45s ease-out both;
+}
+
+@keyframes pitch-slide-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.pitch-slide-active {
+	animation: pitch-slide-in 0.28s ease-out both;
+}

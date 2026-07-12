@@ -1,0 +1,17 @@
+---
+/**
+ * Shared 16:9 black slide frame matching the PPTX.
+ */
+interface Props {
+	bleed?: boolean;
+	class?: string;
+}
+
+const { bleed = false, class: className = '' } = Astro.props;
+---
+
+<div class:list={['pitch-slide-frame', className]}>
+	<div class:list={['pitch-slide-inner', bleed && 'is-bleed']}>
+		<slot />
+	</div>
+</div>

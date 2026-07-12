@@ -1,0 +1,80 @@
+---
+import { pitchSlides } from '../../data/pitchSlides';
+import Slide01Cover from './slides/Slide01Cover.astro';
+import Slide02Elevator from './slides/Slide02Elevator.astro';
+import Slide03Trailer from './slides/Slide03Trailer.astro';
+import Slide04Fantasy from './slides/Slide04Fantasy.astro';
+import Slide05DayLoop from './slides/Slide05DayLoop.astro';
+import Slide06NightLoop from './slides/Slide06NightLoop.astro';
+import Slide07CaseEngine from './slides/Slide07CaseEngine.astro';
+import Slide08VisualIdentity from './slides/Slide08VisualIdentity.astro';
+import Slide09Audience from './slides/Slide09Audience.astro';
+import Slide10VTuber from './slides/Slide10VTuber.astro';
+import Slide11Market from './slides/Slide11Market.astro';
+import Slide12Timeline from './slides/Slide12Timeline.astro';
+import Slide13Ask from './slides/Slide13Ask.astro';
+import Slide14Team from './slides/Slide14Team.astro';
+
+const slides = [
+	Slide01Cover,
+	Slide02Elevator,
+	Slide03Trailer,
+	Slide04Fantasy,
+	Slide05DayLoop,
+	Slide06NightLoop,
+	Slide07CaseEngine,
+	Slide08VisualIdentity,
+	Slide09Audience,
+	Slide10VTuber,
+	Slide11Market,
+	Slide12Timeline,
+	Slide13Ask,
+	Slide14Team,
+];
+
+const prefetchMap = JSON.stringify(pitchSlides.map((s) => s.prefetch ?? []));
+const titlesJson = JSON.stringify(pitchSlides.map((s) => s.title));
+---
+
+<div
+	id="pitch-deck"
+	class="pitch-root relative flex min-h-svh flex-col items-center justify-center gap-3 px-3 py-3 md:gap-4 md:px-6"
+	hidden
+	data-slide-count={slides.length}
+	data-prefetch={prefetchMap}
+	data-titles={titlesJson}
+>
+	<div class="relative flex w-full max-w-[1400px] flex-1 items-center justify-center">
+		<button type="button" class="pitch-nav-btn absolute left-0 z-20 md:left-2" id="pitch-prev" aria-label="Previous slide">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+				<path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="square"></path>
+			</svg>
+		</button>
+
+		<div id="pitch-stage" class="mx-auto w-full max-w-[min(100%,calc(100svh*16/9))]">
+			{
+				slides.map((Slide, i) => (
+					<div
+						class="pitch-slide-panel"
+						data-slide-index={i}
+						hidden={i !== 0}
+						style={i === 0 ? undefined : 'content-visibility: auto'}
+					>
+						<Slide />
+					</div>
+				))
+			}
+		</div>
+
+		<button type="button" class="pitch-nav-btn absolute right-0 z-20 md:right-2" id="pitch-next" aria-label="Next slide">
+			<svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+				<path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="square"></path>
+			</svg>
+		</button>
+	</div>
+
+	<div class="flex w-full max-w-[1400px] items-center justify-between gap-3 px-1 text-xs text-white/55 md:text-sm">
+		<p id="pitch-slide-title" class="truncate tracking-wide uppercase">{pitchSlides[0]?.title ?? ''}</p>
+		<p id="pitch-slide-counter" class="shrink-0 tabular-nums" aria-live="polite">1 / {slides.length}</p>
+	</div>
+</div>
