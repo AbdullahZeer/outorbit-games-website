@@ -1,0 +1,35 @@
+---
+import SlideChrome from '../SlideChrome.astro';
+---
+
+<SlideChrome>
+	<div class="grid h-full grid-cols-[1.15fr_0.85fr] items-center gap-4 md:gap-8">
+		<div>
+			<h2 class="pitch-title">Yokai Case Engine</h2>
+			<p class="pitch-body mt-[clamp(1rem,3vh,1.75rem)]">Every case is a playable supernatural episode.</p>
+			<p class="pitch-body mt-3">Each episode has:</p>
+			<ul class="pitch-body mt-3 list-none space-y-2">
+				<li>• <span class="pitch-bold">Rumor:</span> what players hear by day.</li>
+				<li>• <span class="pitch-bold">Rule:</span> What changes at night.</li>
+				<li>• <span class="pitch-bold">Cursed object:</span> What the team must find and seal.</li>
+				<li>• <span class="pitch-bold">Yokai pressure:</span> What disrupts movement, teamwork, and confidence.</li>
+				<li>• <span class="pitch-bold">Sealing climax:</span> How the case turns into a frantic co-op set piece.</li>
+			</ul>
+			<p class="pitch-body mt-[clamp(1rem,3vh,1.75rem)] max-w-[34rem]">
+				Folklore gives HYPE repeatable content without making the pitch lore-heavy. Players do not need to study the
+				mythology first; they experience it through gameplay
+			</p>
+		</div>
+		<div class="relative flex h-full items-center justify-center">
+			<img
+				src="/hype/pitch/art/yurei.webp"
+				alt="Yūrei yokai concept art"
+				class="max-h-[88%] w-auto max-w-full object-contain"
+				width="700"
+				height="900"
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+	</div>
+</SlideChrome>

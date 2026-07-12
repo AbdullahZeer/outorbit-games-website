@@ -1,25 +1,17 @@
 ---
 /**
- * Shared slide chrome: paper surface + optional tape accents.
- * Each SlideNN fills the default slot.
+ * Shared 16:9 black slide frame matching the PPTX.
  */
-import Tape from './Tape.astro';
-
 interface Props {
-	showCornerTape?: boolean;
+	bleed?: boolean;
+	class?: string;
 }
 
-const { showCornerTape = true } = Astro.props;
+const { bleed = false, class: className = '' } = Astro.props;
 ---
 
-<div class="pitch-slide-frame">
-	{showCornerTape && (
-		<>
-			<Tape src="/hype/pitch/tape/strip-short.svg" class="left-4 -top-1 w-28 rotate-[-8deg] md:left-6 md:w-32" />
-			<Tape src="/hype/pitch/tape/strip-thin.svg" class="right-5 -top-0.5 w-24 rotate-[6deg] md:right-8 md:w-28" />
-		</>
-	)}
-	<div class="pitch-slide-inner">
+<div class:list={['pitch-slide-frame', className]}>
+	<div class:list={['pitch-slide-inner', bleed && 'is-bleed']}>
 		<slot />
 	</div>
 </div>

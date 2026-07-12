@@ -14,21 +14,21 @@ const { passwordHash } = Astro.props;
 >
 	<div class="pitch-gate-card pitch-fade-in">
 		<img
-			src="/hype/pitch/tape/strip-mid.svg"
+			src="/hype/pitch/tape/strip-mid.webp"
 			alt=""
 			class="pitch-tape -top-2 left-1/2 w-40 -translate-x-1/2 rotate-[-3deg]"
 			aria-hidden="true"
 			width="180"
 			height="34"
 		/>
-		<p class="pitch-bold text-center text-xs tracking-[0.28em] text-[var(--pitch-gold-deep)] uppercase">
+		<p class="pitch-bold text-center text-xs tracking-[0.28em] text-[var(--pitch-cream)] uppercase">
 			Outorbit Games
 		</p>
-		<h1 class="pitch-bold mt-3 text-center text-2xl md:text-3xl">H.Y.P.E Pitch</h1>
-		<p class="mt-2 text-center text-sm text-[var(--pitch-ink-muted)]">Enter the shared password to view the deck.</p>
+		<h1 class="pitch-bold mt-3 text-center text-2xl text-white md:text-3xl">H.Y.P.E Pitch</h1>
+		<p class="mt-2 text-center text-sm text-white/60">Enter the shared password to view the deck.</p>
 
 		<form id="pitch-gate-form" class="mt-6 space-y-3" autocomplete="current-password">
-			<label class="block text-xs tracking-wide text-[var(--pitch-ink-muted)] uppercase" for="pitch-password">
+			<label class="block text-xs tracking-wide text-white/55 uppercase" for="pitch-password">
 				Password
 			</label>
 			<input
@@ -40,11 +40,11 @@ const { passwordHash } = Astro.props;
 				autofocus
 				autocomplete="current-password"
 			/>
-			<p id="pitch-gate-error" class="hidden text-sm text-[var(--pitch-red)]" role="alert">
+			<p id="pitch-gate-error" class="hidden text-sm text-[var(--pitch-accent)]" role="alert">
 				Incorrect password. Try again.
 			</p>
 			<button type="submit" class="pitch-submit">Unlock deck</button>
 		</form>
-		<p class="mt-5 text-center text-[0.7rem] text-[var(--pitch-ink-muted)]/80">Confidential · Do not redistribute</p>
+		<p class="mt-5 text-center text-[0.7rem] text-white/45">Confidential · Do not redistribute</p>
 	</div>
 </div>

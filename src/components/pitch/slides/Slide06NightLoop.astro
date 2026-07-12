@@ -1,0 +1,53 @@
+---
+import SlideChrome from '../SlideChrome.astro';
+
+const labels = [
+	{ text: 'Map the warped school', left: '16.5%' },
+	{ text: 'Find the cursed object', left: '50%' },
+	{ text: 'Seal under pressure', left: '83.5%' },
+];
+---
+
+<SlideChrome>
+	<div class="flex h-full flex-col">
+		<h2 class="pitch-title">Gameplay Loop</h2>
+		<p class="pitch-subtitle">Survive the school at night</p>
+		<div class="relative mt-[clamp(0.75rem,2.5vh,1.5rem)] min-h-0 flex-1">
+			<div class="pitch-shot absolute inset-0">
+				<img
+					src="/hype/pitch/art/night-strip.webp"
+					alt="Night phase — map school, find cursed object, seal under pressure"
+					class="h-full w-full object-contain object-center"
+					width="1728"
+					height="333"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+			{
+				labels.map((l, i) => (
+					<div
+						class="absolute bottom-1 flex h-7 -translate-x-1/2 items-center justify-center"
+						style={`left: ${l.left}; width: min(32%, 13rem); transform: translateX(-50%) rotate(${i === 1 ? '-1deg' : i === 2 ? '1.5deg' : '2deg'});`}
+					>
+						<img
+							src="/hype/pitch/tape/strip-long.webp"
+							alt=""
+							class="absolute inset-0 h-full w-full object-fill"
+							aria-hidden="true"
+							width="180"
+							height="36"
+							loading="lazy"
+							decoding="async"
+						/>
+						<span class="pitch-bold relative z-10 px-2 text-[clamp(0.5rem,0.9vw,0.72rem)] text-black">{l.text}</span>
+					</div>
+				))
+			}
+		</div>
+		<p class="pitch-body mt-[clamp(0.75rem,2vh,1.25rem)] max-w-[58rem]">
+			HYPE’s night phase turns the familiar school into a warped supernatural case: map the halls, find the cursed
+			object, and seal it under pressure before the yokai overwhelms the team.
+		</p>
+	</div>
+</SlideChrome>

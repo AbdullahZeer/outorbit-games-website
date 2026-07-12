@@ -1,0 +1,56 @@
+---
+import SlideChrome from '../SlideChrome.astro';
+import Tape from '../Tape.astro';
+
+const labels = [
+	{ text: 'Gather rumors', left: '16.5%' },
+	{ text: 'Buy items', left: '50%' },
+	{ text: 'Goof around', left: '83.5%' },
+];
+---
+
+<SlideChrome>
+	<div class="flex h-full flex-col">
+		<h2 class="pitch-title">Gameplay Loop</h2>
+		<p class="pitch-subtitle">School life by day</p>
+		<div class="relative mt-[clamp(0.75rem,2.5vh,1.5rem)] min-h-0 flex-1">
+			<div class="pitch-shot absolute inset-0">
+				<img
+					src="/hype/pitch/art/day-strip.webp"
+					alt="Day phase — gather rumors, buy items, goof around"
+					class="h-full w-full object-contain object-center"
+					width="1724"
+					height="331"
+					loading="lazy"
+					decoding="async"
+				/>
+				<Tape src="/hype/pitch/tape/corner.webp" class="-left-1 -top-1 w-10 rotate-[-18deg] md:w-12" />
+				<Tape src="/hype/pitch/tape/corner.webp" class="-right-1 -top-1 w-10 rotate-[16deg] md:w-12" />
+			</div>
+			{
+				labels.map((l, i) => (
+					<div
+						class="absolute bottom-1 flex h-7 -translate-x-1/2 items-center justify-center"
+						style={`left: ${l.left}; width: min(28%, 11rem); transform: translateX(-50%) rotate(${i === 1 ? '1deg' : i === 2 ? '-1.5deg' : '-2deg'});`}
+					>
+						<img
+							src="/hype/pitch/tape/strip-mid.webp"
+							alt=""
+							class="absolute inset-0 h-full w-full object-fill"
+							aria-hidden="true"
+							width="160"
+							height="36"
+							loading="lazy"
+							decoding="async"
+						/>
+						<span class="pitch-bold relative z-10 px-2 text-[clamp(0.55rem,0.95vw,0.75rem)] text-black">{l.text}</span>
+					</div>
+				))
+			}
+		</div>
+		<p class="pitch-body mt-[clamp(0.75rem,2vh,1.25rem)] max-w-[58rem]">
+			HYPE’s day phase is the anime school life and preparation for the night: talk to students, chase rumors, buy
+			items, choose tools, goof around and build your plan before the haunting begins.
+		</p>
+	</div>
+</SlideChrome>

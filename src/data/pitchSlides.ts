@@ -1,4 +1,4 @@
-/** Ordered pitch deck registry — add a slide = new component + one entry here */
+/** Ordered pitch deck registry — matches Pitch Deck_polden_draft (14 slides) */
 export type PitchSlideMeta = {
 	id: string;
 	title: string;
@@ -8,57 +8,73 @@ export type PitchSlideMeta = {
 
 export const pitchSlides: PitchSlideMeta[] = [
 	{
-		id: 'title',
-		title: 'Title',
-		prefetch: ['/hype/pitch/art/hero.webp'],
+		id: 'cover',
+		title: 'Cover',
+		prefetch: ['/hype/pitch/art/cover.webp'],
 	},
 	{
-		id: 'hook',
-		title: 'The Hook',
+		id: 'elevator',
+		title: 'Elevator Pitch',
 	},
 	{
-		id: 'opportunity',
-		title: 'The Opportunity',
+		id: 'trailer',
+		title: 'Trailer',
+		prefetch: ['/hype/pitch/art/trailer.webp'],
 	},
 	{
-		id: 'overview',
-		title: 'Game Overview',
-		prefetch: ['/hype/pitch/art/hero-sm.webp'],
+		id: 'fantasy',
+		title: 'Game Fantasy',
+		prefetch: ['/hype/pitch/art/ref-dandadan.webp', '/hype/pitch/art/cast-group.webp'],
 	},
 	{
-		id: 'loop',
-		title: 'Day / Night Loop',
+		id: 'day-loop',
+		title: 'Gameplay Loop — Day',
+		prefetch: ['/hype/pitch/art/day-strip.webp'],
 	},
 	{
-		id: 'features',
-		title: 'Core Features',
+		id: 'night-loop',
+		title: 'Gameplay Loop — Night',
+		prefetch: ['/hype/pitch/art/night-strip.webp'],
 	},
 	{
-		id: 'cast',
-		title: 'The Patrol',
-		prefetch: ['/hype/pitch/art/uniforms.webp'],
-	},
-	{
-		id: 'yokai',
-		title: 'The Threat',
+		id: 'case-engine',
+		title: 'Yokai Case Engine',
 		prefetch: ['/hype/pitch/art/yurei.webp'],
 	},
 	{
-		id: 'positioning',
-		title: 'Why This Lane',
+		id: 'visual-identity',
+		title: 'Visual Identity',
 	},
 	{
-		id: 'studio',
-		title: 'Studio',
+		id: 'audience',
+		title: 'Audience & Cultural Timing',
 	},
 	{
-		id: 'status',
-		title: 'Status & Contact',
+		id: 'vtuber',
+		title: 'Creator / VTuber Fit',
+		prefetch: ['/hype/pitch/art/vtuber-thumb.webp'],
 	},
 	{
-		id: 'thanks',
-		title: 'Thank You',
-		prefetch: ['/hype/pitch/art/hero-sm.webp'],
+		id: 'market',
+		title: 'Market Opportunity',
+	},
+	{
+		id: 'timeline',
+		title: 'Production Timeline',
+	},
+	{
+		id: 'ask',
+		title: 'The Ask',
+	},
+	{
+		id: 'team',
+		title: 'The Team',
+		prefetch: [
+			'/hype/pitch/art/team-1.webp',
+			'/hype/pitch/art/team-geniro.webp',
+			'/hype/pitch/art/team-chillifish.webp',
+			'/hype/pitch/art/team-4.webp',
+		],
 	},
 ];
 

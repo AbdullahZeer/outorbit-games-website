@@ -1,0 +1,49 @@
+---
+import SlideChrome from '../SlideChrome.astro';
+
+const facts = [
+	{ label: 'Genre', value: 'comedy-horror co-op\n(friendslop)', tape: '/hype/pitch/tape/strip-short.webp', rot: '-2deg' },
+	{ label: 'Players', value: '1–4 online', tape: '/hype/pitch/tape/strip-mid.webp', rot: '1.5deg' },
+	{ label: 'Engine', value: 'Unity', tape: '/hype/pitch/tape/strip-short.webp', rot: '-1deg' },
+	{ label: 'Status', value: 'Vertical Slice', tape: '/hype/pitch/tape/strip-mid.webp', rot: '2deg' },
+	{ label: 'Target window', value: 'Q2 2027\n(initial plan)', tape: '/hype/pitch/tape/strip-wide.webp', rot: '-1.5deg' },
+];
+---
+
+<SlideChrome>
+	<div class="flex h-full flex-col">
+		<h2 class="pitch-title">Elevator Pitch</h2>
+		<p class="pitch-body mt-[clamp(1.25rem,4vh,2.75rem)] max-w-[52rem]">
+			HYPE: Highschool Yokai Patrol &amp; Exorcism is an online co-op comedy-horror game where you and your friends
+			run a school occult club investigating yokai rumors. Explore by day, sneak in at night, find the cursed object,
+			and tape-seal it before the yokai turns the whole school against you.
+		</p>
+		<div class="mt-auto grid grid-cols-5 gap-2 pb-1 md:gap-4">
+			{
+				facts.map((f) => (
+					<div class="flex flex-col items-center text-center">
+						<div
+							class="relative flex h-8 w-full max-w-[9.5rem] items-center justify-center"
+							style={`transform: rotate(${f.rot})`}
+						>
+							<img
+								src={f.tape}
+								alt=""
+								class="absolute inset-0 h-full w-full object-fill"
+								width="160"
+								height="36"
+								aria-hidden="true"
+								loading="lazy"
+								decoding="async"
+							/>
+							<span class="pitch-bold relative z-10 px-1 text-[clamp(0.55rem,0.95vw,0.78rem)] text-black">{f.label}</span>
+						</div>
+						<p class="pitch-muted mt-2 whitespace-pre-line text-[clamp(0.55rem,0.95vw,0.78rem)] leading-snug">
+							{f.value}
+						</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</SlideChrome>

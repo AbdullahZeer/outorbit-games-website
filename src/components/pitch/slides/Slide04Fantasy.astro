@@ -1,0 +1,57 @@
+---
+import SlideChrome from '../SlideChrome.astro';
+import Tape from '../Tape.astro';
+---
+
+<SlideChrome>
+	<div class="grid h-full grid-cols-[1.15fr_0.85fr] gap-4 md:gap-8">
+		<div class="flex flex-col">
+			<h2 class="pitch-title">Game Fantasy</h2>
+			<p class="pitch-body mt-[clamp(1rem,3.5vh,2rem)] max-w-[34rem]">A modern supernatural anime friendslop.</p>
+			<p class="pitch-body mt-4 max-w-[34rem]">
+				Ordinary students investigate strange school rumors, sneak into warped school after dark, and survive occult
+				cases that spiral from funny to terrifying.
+			</p>
+			<p class="pitch-body mt-4 max-w-[34rem]">
+				The weird and funny supernatural energy of <span class="underline decoration-white underline-offset-2"
+					>DAN DA DAN</span
+				>
+				and <span class="underline decoration-white underline-offset-2">Mob Psycho 100</span>, turned into a playable
+				co-op comedy-horror game.
+			</p>
+		</div>
+		<div class="relative flex h-full flex-col items-end justify-center gap-2 pr-1">
+			<img
+				src="/hype/pitch/art/ref-dandadan.webp"
+				alt="DAN DA DAN reference poster"
+				class="relative z-10 w-[min(100%,14rem)] border border-white/20 object-cover shadow-lg md:w-[16rem]"
+				width="480"
+				height="640"
+				loading="lazy"
+				decoding="async"
+			/>
+			<div class="relative z-20 -mt-6 w-[min(100%,14rem)] md:-mt-8 md:w-[16rem]">
+				<Tape src="/hype/pitch/tape/corner.webp" class="-left-2 -top-2 z-30 w-12 rotate-[-25deg] md:w-14" />
+				<Tape src="/hype/pitch/tape/corner.webp" class="-right-2 -top-2 z-30 w-12 rotate-[20deg] md:w-14" />
+				<img
+					src="/hype/pitch/art/ref-mob.webp"
+					alt="Mob Psycho 100 reference poster"
+					class="w-full border border-white/20 object-cover shadow-lg"
+					width="480"
+					height="640"
+					loading="lazy"
+					decoding="async"
+				/>
+			</div>
+			<img
+				src="/hype/pitch/art/cast-group.webp"
+				alt="HYPE student cast"
+				class="relative z-30 -mt-8 w-[min(115%,17rem)] object-contain md:-mt-10 md:w-[19rem]"
+				width="700"
+				height="400"
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+	</div>
+</SlideChrome>
