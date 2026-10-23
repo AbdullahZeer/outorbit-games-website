@@ -27,14 +27,14 @@ const keywords =
 >
 	<Starfield />
 	
-	<main class="relative min-h-screen flex flex-col items-center justify-center px-4 py-16">
+	<main class="relative flex min-h-screen flex-col items-center px-4 py-6 md:py-10">
 		<!-- Logo Header -->
-		<div class="mb-12 animate-fade-in">
-			<Logo />
+		<div class="mb-5 animate-fade-in">
+			<Logo class="h-16 w-16 md:h-20 md:w-20" />
 		</div>
 
 		<!-- Main Content Card -->
-		<div class="w-full max-w-[65ch] backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-8 md:p-12 shadow-2xl animate-fade-in-delay">
+		<div class="w-full max-w-xl backdrop-blur-md bg-white/5 border border-white/10 rounded-lg p-6 md:p-8 shadow-2xl animate-fade-in-delay">
 			<!-- Studio Name -->
 			<h1 class="text-3xl md:text-4xl font-light mb-6 text-center tracking-wide">
 				Outorbit
@@ -46,7 +46,7 @@ const keywords =
 			</p>
 
 			<!-- Studio Philosophy -->
-			<div class="text-base md:text-lg text-gray-300 text-center mb-8 leading-relaxed max-w-[65ch] mx-auto">
+			<div class="text-base md:text-lg text-gray-300 text-center mb-6 leading-relaxed max-w-[65ch] mx-auto">
 				<p class="mb-2">
 					At Outorbit, we don't aim to invent new genres. We refine them.
 				</p>
@@ -54,9 +54,42 @@ const keywords =
 					We believe innovation happens when we stay close to what feels familiar and push it just far enough to feel new again.
 				</p>
 			</div>
+		</div>
 
+		<article class="mt-4 w-full max-w-xl overflow-hidden rounded-lg border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md animate-fade-in-delay sm:flex" aria-labelledby="hype-heading">
+			<a href="/hype" class="block h-24 sm:h-auto sm:w-2/5 sm:self-stretch">
+				<img
+					src="/hype/hero.webp"
+					alt="Key art for HYPE: Highschool Yokai Patrol & Exorcism"
+					width="1232"
+					height="706"
+					class="h-full w-full object-cover object-[center_32%]"
+				/>
+			</a>
+			<div class="flex flex-1 flex-col justify-center px-5 py-5 text-center sm:px-5 sm:text-left">
+				<p class="mb-2 text-xs tracking-[0.18em] text-gray-400 uppercase">Coming soon on Steam</p>
+				<ScreamFest class="mb-2" />
+				<h2 id="hype-heading" class="mb-2 text-lg font-light tracking-wide md:text-xl">
+					<a href="/hype" class="hover:text-[#B0F0FF]">{gameTitle}</a>
+				</h2>
+				<p class="mx-auto mb-4 max-w-[40ch] text-sm leading-relaxed text-gray-300 sm:mx-0">
+					A 1–4 player online co-op horror game. Follow the rumors by day, and seal the curse after dark.
+				</p>
+				<div class="flex flex-col items-center justify-center gap-3 sm:flex-row sm:justify-start">
+					<WishlistLink content="home" variant="home" />
+					<a
+						href="/hype"
+						class="inline-flex items-center justify-center rounded-md border border-white/20 px-5 py-3 text-sm text-white transition-colors hover:border-white hover:text-[#B0F0FF]"
+					>
+						Game page
+					</a>
+				</div>
+			</div>
+		</article>
+
+		<div class="mt-6 w-full max-w-xl text-center animate-fade-in-delay">
 			<!-- Contact -->
-			<div class="text-center mb-10">
+			<div class="text-center mb-6">
 				<a
 					href="mailto:contact@outorbit.games"
 					class="inline-flex items-center gap-2 text-white hover:text-[#B0F0FF] transition-colors duration-300 underline decoration-white/30 hover:decoration-[#B0F0FF]/50 underline-offset-4"
@@ -88,37 +121,6 @@ const keywords =
 				</a>
 			</div>
 		</div>
-
-		<article class="mt-8 w-full max-w-xl overflow-hidden rounded-lg border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md animate-fade-in-delay" aria-labelledby="hype-heading">
-			<a href="/hype" class="block">
-				<img
-					src="/hype/hero.webp"
-					alt="Key art for HYPE: Highschool Yokai Patrol & Exorcism"
-					width="1232"
-					height="706"
-					class="aspect-video w-full object-cover object-[center_32%]"
-				/>
-			</a>
-			<div class="px-6 py-6 text-center md:px-8">
-				<p class="mb-3 text-xs tracking-[0.18em] text-gray-400 uppercase">Coming soon on Steam</p>
-				<ScreamFest class="mb-3" />
-				<h2 id="hype-heading" class="mb-3 text-xl font-light tracking-wide md:text-2xl">
-					<a href="/hype" class="hover:text-[#B0F0FF]">{gameTitle}</a>
-				</h2>
-				<p class="mx-auto mb-6 max-w-[52ch] text-sm leading-relaxed text-gray-300 md:text-base">
-					A 1–4 player online co-op horror game. Run a highschool occult club, follow the rumors by day, and seal the curse after dark.
-				</p>
-				<div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
-					<WishlistLink content="home" variant="home" />
-					<a
-						href="/hype"
-						class="inline-flex items-center justify-center rounded-md border border-white/20 px-5 py-3 text-sm text-white transition-colors hover:border-white hover:text-[#B0F0FF]"
-					>
-						Game page
-					</a>
-				</div>
-			</div>
-		</article>
 
 		<!-- Footer -->
 		<footer class="mt-16 text-center text-gray-500 text-sm animate-fade-in-delay-2">

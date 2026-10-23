@@ -1,10 +1,14 @@
 ---
-// Outorbit logo
+interface Props {
+	class?: string;
+}
+
+const { class: className = "h-24 w-24 md:h-32 md:w-32" } = Astro.props;
 ---
 
 <img
 	src="/logo.svg"
 	alt="Outorbit Games Logo"
-	class="w-24 h-24 md:w-32 md:h-32"
+	class={className}
 	aria-label="Outorbit Games Logo"
 />
