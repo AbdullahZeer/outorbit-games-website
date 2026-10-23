@@ -1,30 +1,107 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import WishlistLink from '../../components/WishlistLink.astro';
-import { gameTitle, screenshots } from '../../data/hype';
+import PressImageCard from '../../components/PressImageCard.astro';
+import { credits, gameTitle, screenshots, trailerYouTubeId } from '../../data/hype';
 import factEn from '../../../press-kit/fact-sheet-en.txt?raw';
 import factJa from '../../../press-kit/fact-sheet-ja.txt?raw';
 
 const title = `Press kit — ${gameTitle} | Outorbit Games`;
 const description =
-	'Press kit for HYPE: Highschool Yokai Patrol & Exorcism by Outorbit Games. Fact sheet, key art, logo, and screenshots. Contact contact@outorbit.games.';
+	'Press kit for HYPE: Highschool Yokai Patrol & Exorcism by Outorbit Games. Fact sheet, key art, logos, screenshots, and GIFs. Contact contact@outorbit.games.';
 const keywords =
 	'HYPE press kit, Highschool Yokai Patrol and Exorcism, Outorbit Games, fact sheet, key art, Steam';
 
 const downloads = [
-	{ href: '/hype/hero.webp', label: 'Key art', width: 1232, height: 706 },
-	{ href: '/hype/header.jpg', label: 'Steam header', width: 460, height: 215 },
-	{ href: '/hype/capsule.jpg', label: 'Steam capsule', width: 616, height: 353 },
-	{ href: '/logo.svg', label: 'Outorbit logo', width: 512, height: 512 },
+	{ href: '/hype/hero.webp', label: 'Key art', alt: 'HYPE key art showing students with flashlights outside a haunted school at night', width: 1232, height: 706 },
+	{ href: '/hype/key-art-wide-3840.jpg', label: 'Key art, wide (no logo)', alt: 'Wide HYPE key art without the game logo', width: 3840, height: 1240 },
+	{ href: '/hype/header.jpg', label: 'Steam header', alt: 'HYPE Steam store header artwork', width: 460, height: 215 },
+	{ href: '/hype/capsule.jpg', label: 'Steam capsule', alt: 'HYPE Steam store capsule artwork', width: 616, height: 353 },
 	...screenshots.map((shot, index) => ({
 		href: shot.src,
+		alt: shot.alt,
 		label: `Screenshot ${index + 1}`,
 		width: shot.width,
 		height: shot.height,
 	})),
-	{ href: '/hype/uniforms.webp', label: 'Concept art, uniforms', width: 1600, height: 901 },
-	{ href: '/hype/yurei.webp', label: 'Concept art, yūrei', width: 1600, height: 901 },
+	{ href: '/hype/uniforms.webp', label: 'Concept art, uniforms', alt: 'HYPE concept art showing students in school uniforms with charms and a flashlight', width: 1600, height: 901 },
+	{ href: '/hype/yurei.webp', label: 'Concept art, yūrei', alt: 'HYPE concept art of a pale blue yūrei in a tattered robe', width: 1600, height: 901 },
 ];
+
+const logos = [
+	{ href: '/hype/hype-logo-white.png', label: 'HYPE logo, white', alt: 'White HYPE game logo on a transparent background', width: 616, height: 616, background: 'dark' },
+	{ href: '/hype/hype-logo-black.png', label: 'HYPE logo, black', alt: 'Black HYPE game logo on a transparent background', width: 616, height: 616, background: 'light' },
+	{ href: '/logo.svg', label: 'Outorbit logo', alt: 'White Outorbit Games studio logo', width: 512, height: 512, background: 'dark' },
+] as const;
+const gifs = [
+	{ href: '/hype/gifs/school-club.gif', label: 'School club', alt: 'Animated HYPE gameplay in the school occult club', width: 640, height: 359 },
+	{ href: '/hype/gifs/school-mapping.gif', label: 'School mapping', alt: 'Animated HYPE gameplay showing school mapping', width: 640, height: 359 },
+	{ href: '/hype/gifs/tape-seal.gif', label: 'Tape seal', alt: 'Animated HYPE gameplay showing a tape seal', width: 640, height: 359 },
+];
+const pressSections = [
+	{
+		"title": "Short description",
+		"id": "short-description",
+		"blocks": [
+			"HYPE is a first-person co-op horror game for 1–4 players. You and your friends run your high school's occult club. By day, you chase rumors and get ready. By night, you sneak back into a warped, haunted school, track down the cursed object, and seal away the yokai before it gets you."
+		]
+	},
+	{
+		"title": "Long description",
+		"id": "long-description",
+		"blocks": [
+			"HYPE is a first-person online co-op horror game where you and up to 3 friends run a high school occult club.",
+			"By day, school life goes on as normal. Wander the halls between classes, talk to your classmates, and piece together the rumors about what's haunting the school. Then meet up in the clubroom and spend your coins on whatever the night will need, from snacks to yokai apps for your phone.",
+			"After dark, the school isn't the one you left. Sneak back in with your flashlights, map its warped halls floor by floor, and keep quiet, because every sound carries and you're not alone in there. Different yokai roam the classrooms, and somewhere inside, the cursed object is waiting.",
+			"Find it, and the real fight begins. Sealing the curse takes the whole club working together, and the yokai will do everything it can to stop you."
+		]
+	},
+	{
+		"title": "Features",
+		"id": "features",
+		"blocks": [
+			"- 1–4 player online co-op horror, played in first person\n- Run your school's occult club: gather rumors by day, face the yokai by night\n- A warped school at night that you map together as you explore\n- Different yokai to learn about, track down and seal away\n- Gear up between nights with snacks, tools and yokai apps\n- Sealing the curse takes the whole club working together"
+		]
+	},
+	{
+		"title": "Release, platform and price",
+		"id": "release-platform-price",
+		"blocks": [
+			"- Release date: TBA (Coming Soon on Steam)\n- Platform: PC (Windows), Steam\n- Price: TBA"
+		]
+	},
+	{
+		"title": "Trailer",
+		"id": "trailer",
+		"blocks": [
+			"- Announcement Trailer: watch on the Steam page, https://store.steampowered.com/app/4637410/"
+		]
+	},
+	{
+		"title": "About Outorbit Games",
+		"id": "about-outorbit-games",
+		"blocks": [
+			"Outorbit Games is an independent game studio based in Riyadh, Saudi Arabia. HYPE: Highschool Yokai Patrol & Exorcism is its first game."
+		]
+	},
+	{
+		"title": "Links",
+		"id": "links",
+		"blocks": [
+			"- Website: https://outorbit.games/hype\n- Steam: https://store.steampowered.com/app/4637410/\n- X: https://x.com/OutorbitGames\n- Press contact: contact@outorbit.games"
+		]
+	}
+];
+
+// Keep the supplied link text while directing visitors to canonical internal URLs.
+const copyLink = (text: string) => {
+	const match = text.match(/https:\/\/[^\s]+|[\w.+-]+@[\w.-]+\.[a-z]+/);
+	if (!match || match.index === undefined) return { before: text, label: '', href: '' };
+	const label = match[0];
+	const href = label.includes('@') ? `mailto:${label}` : label === 'https://outorbit.games/hype' ? '/hype/' : label;
+	return { before: text.slice(0, match.index), label, href };
+};
+
 ---
 
 <Layout
@@ -42,7 +119,7 @@ const downloads = [
 			<nav class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-4 gap-y-2 px-6 py-4 text-sm text-white/70 md:px-10" aria-label="Breadcrumb">
 				<a href="/" class="hover:text-white">Outorbit</a>
 				<span aria-hidden="true">/</span>
-				<a href="/hype" class="hover:text-white">HYPE</a>
+				<a href="/hype/" class="hover:text-white">HYPE</a>
 				<span aria-hidden="true">/</span>
 				<span class="text-white">Press kit</span>
 			</nav>
@@ -63,8 +140,29 @@ const downloads = [
 				<WishlistLink content="press" variant="ghost" />
 			</div>
 			<p class="mt-4 text-sm text-white/60">
-				Key art, Steam header and capsule, screenshots, concept art, the studio logo, and the fact sheet in English and Japanese.
+				Key art, Steam header and capsule, screenshots, concept art, GIFs, the game and studio logos, the description, and the fact sheet in English and Japanese.
 			</p>
+
+			{pressSections.map((section) => (
+				<section class="mt-16 border-t border-white/10 pt-12" id={section.id}>
+					<h2 class="font-mono-annotation-bold mb-6 text-2xl text-[#DF3D1A] md:text-3xl">{section.title}</h2>
+					<div class="space-y-5 text-base leading-relaxed text-white/90 md:text-lg">
+						{section.blocks.map((block) => block.startsWith('- ') ? (
+							<ul class="list-disc space-y-2 pl-5">
+								{block.split('\n').map((line) => {
+									const link = copyLink(line.slice(2));
+									return <li>{link.before}{link.href && <a href={link.href} class="underline decoration-white/30 underline-offset-4 hover:text-white">{link.label}</a>}</li>;
+								})}
+							</ul>
+						) : <p>{block}</p>)}
+					</div>
+					{section.id === 'trailer' && trailerYouTubeId && (
+						<div class="mt-8 aspect-video w-full overflow-hidden border border-white/10 bg-black">
+							<iframe src={`https://www.youtube-nocookie.com/embed/${trailerYouTubeId}`} title={`${gameTitle} trailer`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="h-full w-full" />
+						</div>
+					)}
+				</section>
+			))}
 
 			<section class="mt-16 border-t border-white/10 pt-12" id="fact-sheet">
 				<div class="mb-6 flex flex-wrap items-end justify-between gap-4">
@@ -89,25 +187,32 @@ const downloads = [
 			<section class="mt-16 border-t border-white/10 pt-12" id="images">
 				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">Images</h2>
 				<ul class="grid list-none gap-6 sm:grid-cols-2">
-					{
-						downloads.map((item) => (
-							<li class="border border-white/10 bg-black">
-								<a href={item.href} download class="block">
-									<img
-										src={item.href}
-										alt=""
-										width={item.width}
-										height={item.height}
-										loading="lazy"
-										class="block h-40 w-full object-cover object-center"
-									/>
-									<span class="block px-3 py-3 text-sm text-white/80">{item.label}</span>
-								</a>
-							</li>
-						))
-					}
+					{downloads.map((item) => <PressImageCard {...item} />)}
 				</ul>
 			</section>
+
+			<section class="mt-16 border-t border-white/10 pt-12" id="logos">
+				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">Logos</h2>
+				<ul class="grid list-none gap-6 sm:grid-cols-2">
+					{logos.map((item) => <PressImageCard {...item} />)}
+				</ul>
+			</section>
+
+			<section class="mt-16 border-t border-white/10 pt-12" id="gifs">
+				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">GIFs</h2>
+				<ul class="grid list-none gap-6 sm:grid-cols-2">
+					{gifs.map((item) => <PressImageCard {...item} />)}
+				</ul>
+			</section>
+
+			{credits.length > 0 && (
+				<section class="mt-16 border-t border-white/10 pt-12" id="credits">
+					<h2 class="font-mono-annotation-bold mb-6 text-2xl text-[#DF3D1A] md:text-3xl">Credits</h2>
+					<ul class="list-none space-y-2 text-base text-white/90">
+						{credits.map(({ name, role }) => <li>{name} — {role}</li>)}
+					</ul>
+				</section>
+			)}
 
 			<section class="mt-16 border-t border-white/10 py-16" id="contact">
 				<h2 class="font-mono-annotation-bold mb-4 text-2xl text-[#DF3D1A] md:text-3xl">Contact</h2>

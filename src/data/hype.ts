@@ -11,6 +11,8 @@ export function steamUrl(content: string) {
 	const url = new URL(steamAppUrl);
 	url.searchParams.set("utm_source", "outorbit");
 	url.searchParams.set("utm_content", content);
+	url.searchParams.set("utm_medium", "website");
+	url.searchParams.set("utm_campaign", "hype");
 	return url.toString();
 }
 
@@ -70,3 +72,6 @@ export const screenshots = [
 		alt: "Two club members with flashlights face a tall yokai in a school hallway.",
 	},
 ] as const;
+
+/** Add verified team names and roles here to display press kit credits. */
+export const credits: { name: string; role: string }[] = [];

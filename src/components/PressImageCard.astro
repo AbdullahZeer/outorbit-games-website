@@ -1,0 +1,31 @@
+---
+interface Props {
+	href: string;
+	label: string;
+	alt: string;
+	width: number;
+	height: number;
+	background?: 'dark' | 'light';
+}
+const { href, label, alt, width, height, background } = Astro.props;
+---
+<li class="border border-white/10 bg-black">
+	<a href={href} download class="block">
+		<img
+			src={href}
+			alt={alt}
+			width={width}
+			height={height}
+			loading="lazy"
+			class:list={[
+				'block h-40 w-full object-center',
+				background ? 'object-contain p-4' : 'object-cover',
+				background === 'light' ? 'bg-white' : 'bg-black',
+			]}
+		/>
+		<span class="block px-3 py-3 text-sm text-white/80">
+			{label}
+			<span class="mt-1 block text-xs text-white/60">{width} × {height} px</span>
+		</span>
+	</a>
+</li>

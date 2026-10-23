@@ -10,3 +10,33 @@
 # dist/sitemap-index.xml, dist/hype/press/index.html). A /* rewrite to
 # /index.html shadows those files, so it is not used here.
 # Netlify serves dist/404.html for unknown paths.
+
+[[redirects]]
+  from = "/press"
+  to = "/hype/press/"
+  status = 301
+
+[[redirects]]
+  from = "/press/"
+  to = "/hype/press/"
+  status = 301
+
+[[redirects]]
+  from = "/presskit"
+  to = "/hype/press/"
+  status = 301
+
+[[redirects]]
+  from = "/presskit/"
+  to = "/hype/press/"
+  status = 301
+
+[[redirects]]
+  from = "/hype/presskit"
+  to = "/hype/press/"
+  status = 301
+
+[[redirects]]
+  from = "/hype/presskit/"
+  to = "/hype/press/"
+  status = 301
