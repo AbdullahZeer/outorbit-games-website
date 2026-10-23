@@ -5,13 +5,26 @@ import Logo from '../components/Logo.astro';
 import { Mail } from 'lucide-astro';
 import XIcon from '../components/icons/XIcon.astro';
 import TikTokIcon from '../components/icons/TikTokIcon.astro';
-import YoutubeIcon from '../components/icons/YoutubeIcon.astro';
+import WishlistLink from '../components/WishlistLink.astro';
+import ScreamFest from '../components/ScreamFest.astro';
+import { gameTitle } from '../data/hype';
 
-const title = "Outorbit — Exploring Beyond Orbit";
-const description = "Outorbit is an independent studio exploring beyond orbit. We refine genres, push their limits, and find quiet innovation within familiar forms.";
+const title = "Outorbit Games — Exploring Beyond Orbit";
+const description =
+	"Outorbit Games is an independent studio. Our first game, HYPE: Highschool Yokai Patrol & Exorcism, is a co-op horror game coming soon on Steam.";
+const keywords =
+	"Outorbit Games, indie game studio, HYPE, Highschool Yokai Patrol and Exorcism, co-op horror, Steam";
 ---
 
-<Layout title={title} description={description}>
+<Layout
+	title={title}
+	description={description}
+	keywords={keywords}
+	ogImage="/og/hype.jpg"
+	ogImageAlt="HYPE: Highschool Yokai Patrol & Exorcism key art"
+	ogImageWidth={1200}
+	ogImageHeight={630}
+>
 	<Starfield />
 	
 	<main class="relative min-h-screen flex flex-col items-center justify-center px-4 py-16">
@@ -41,11 +54,6 @@ const description = "Outorbit is an independent studio exploring beyond orbit. W
 					We believe innovation happens when we stay close to what feels familiar and push it just far enough to feel new again.
 				</p>
 			</div>
-
-			<!-- Status Line -->
-			<p class="text-base md:text-lg text-gray-400 text-center mb-10 italic">
-				Quietly working on our first game.
-			</p>
 
 			<!-- Contact -->
 			<div class="text-center mb-10">
@@ -78,17 +86,39 @@ const description = "Outorbit is an independent studio exploring beyond orbit. W
 				>
 					<TikTokIcon class="w-5 h-5" />
 				</a>
-				<a
-					href="https://youtube.com/@outorbitgames"
-					target="_blank"
-					rel="noopener noreferrer"
-					class="text-gray-400 hover:text-white transition-colors duration-300"
-					aria-label="YouTube"
-				>
-					<YoutubeIcon class="w-5 h-5" />
-				</a>
 			</div>
 		</div>
+
+		<article class="mt-8 w-full max-w-xl overflow-hidden rounded-lg border border-white/10 bg-white/5 shadow-2xl backdrop-blur-md animate-fade-in-delay" aria-labelledby="hype-heading">
+			<a href="/hype" class="block">
+				<img
+					src="/hype/hero.webp"
+					alt="Key art for HYPE: Highschool Yokai Patrol & Exorcism"
+					width="1232"
+					height="706"
+					class="aspect-video w-full object-cover object-[center_32%]"
+				/>
+			</a>
+			<div class="px-6 py-6 text-center md:px-8">
+				<p class="mb-3 text-xs tracking-[0.18em] text-gray-400 uppercase">Coming soon on Steam</p>
+				<ScreamFest class="mb-3" />
+				<h2 id="hype-heading" class="mb-3 text-xl font-light tracking-wide md:text-2xl">
+					<a href="/hype" class="hover:text-[#B0F0FF]">{gameTitle}</a>
+				</h2>
+				<p class="mx-auto mb-6 max-w-[52ch] text-sm leading-relaxed text-gray-300 md:text-base">
+					A 1–4 player online co-op horror game. Run a highschool occult club, follow the rumors by day, and seal the curse after dark.
+				</p>
+				<div class="flex flex-col items-center justify-center gap-3 sm:flex-row">
+					<WishlistLink content="home" variant="home" />
+					<a
+						href="/hype"
+						class="inline-flex items-center justify-center rounded-md border border-white/20 px-5 py-3 text-sm text-white transition-colors hover:border-white hover:text-[#B0F0FF]"
+					>
+						Game page
+					</a>
+				</div>
+			</div>
+		</article>
 
 		<!-- Footer -->
 		<footer class="mt-16 text-center text-gray-500 text-sm animate-fade-in-delay-2">

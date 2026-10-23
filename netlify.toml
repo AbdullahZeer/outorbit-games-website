@@ -6,8 +6,7 @@
   OUTORBIT_ENV = "production"
   NODE_VERSION = "20"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
+# Astro writes a real file per route (dist/hype/index.html, dist/robots.txt,
+# dist/sitemap-index.xml, dist/hype/press/index.html). A /* rewrite to
+# /index.html shadows those files, so it is not used here.
+# Netlify serves dist/404.html for unknown paths.

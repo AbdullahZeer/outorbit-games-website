@@ -6,9 +6,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "presskit": "python3 scripts/build-press-kit.py"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.15.4",
     "lucide-astro": "^0.553.0",

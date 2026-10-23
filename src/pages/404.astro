@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Starfield from '../components/Starfield.astro';
+
+const title = 'Page not found | Outorbit Games';
+const description = 'This page is not on outorbit.games.';
+---
+
+<Layout title={title} description={description} keywords="Outorbit Games" noindex>
+	<Starfield />
+	<main class="relative flex min-h-screen flex-col items-center justify-center px-6 py-16 text-center">
+		<p class="mb-3 text-sm tracking-[0.2em] text-white/50 uppercase">404</p>
+		<h1 class="mb-4 text-3xl font-light md:text-4xl">This page is not here.</h1>
+		<p class="mb-8 max-w-md text-gray-300">The link may be old, or the page may have moved.</p>
+		<div class="flex flex-col gap-4 sm:flex-row">
+			<a href="/" class="text-white underline decoration-white/30 underline-offset-4 hover:text-[#B0F0FF]">Outorbit</a>
+			<a href="/hype" class="text-white underline decoration-white/30 underline-offset-4 hover:text-[#B0F0FF]">
+				HYPE: Highschool Yokai Patrol &amp; Exorcism
+			</a>
+		</div>
+	</main>
+</Layout>
