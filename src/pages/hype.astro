@@ -1,110 +1,216 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import WishlistLink from '../components/WishlistLink.astro';
 import { ChevronDown } from 'lucide-astro';
+import { gameTitle, hypeDescription, screenshots, trailerYouTubeId } from '../data/hype';
 
-const title = 'H.Y.P.E — Highschool Youkai Patrol & Exorcism | Outorbit Games';
-const description =
-	'H.Y.P.E is an anime-inspired online co-op comedy-horror game set in a Japanese high school. By day, players gather rumors and prepare as a team. By night, they seal cursed anchors and survive escalating yokai pressure. PC · Unity · Outorbit Games.';
+const title = `${gameTitle} | Outorbit Games`;
+const description = hypeDescription;
+const keywords =
+	'HYPE, Highschool Yokai Patrol and Exorcism, yokai, co-op horror, online co-op, Japanese high school, occult club, Outorbit Games, Steam';
+
+const gameLd = {
+	'@context': 'https://schema.org',
+	'@type': 'VideoGame',
+	name: gameTitle,
+	url: 'https://outorbit.games/hype',
+	image: 'https://outorbit.games/og/hype.jpg',
+	description,
+	genre: ['Horror', 'Action', 'Indie'],
+	playMode: ['MultiPlayer', 'CoOp', 'SinglePlayer'],
+	numberOfPlayers: {
+		'@type': 'QuantitativeValue',
+		minValue: 1,
+		maxValue: 4,
+	},
+	gamePlatform: 'PC',
+	inLanguage: ['en', 'ar'],
+	author: {
+		'@type': 'Organization',
+		name: 'Outorbit Games',
+		url: 'https://outorbit.games',
+		email: 'contact@outorbit.games',
+	},
+};
 ---
 
-<Layout title={title} description={description} ogImage="/hype/hero.png">
+<Layout
+	title={title}
+	description={description}
+	keywords={keywords}
+	ogImage="/og/hype.jpg"
+	ogImageAlt={`${gameTitle} key art`}
+	ogImageWidth={1200}
+	ogImageHeight={630}
+>
+	<script type="application/ld+json" set:html={JSON.stringify(gameLd)} />
 	<div class="font-mono-annotation bg-black text-white [&_p]:max-w-none">
-		<!-- Hero: full-bleed capsule + subtle bottom fade + black band below art -->
-		<section class="bg-black" aria-label="H.Y.P.E key art">
+		<section class="relative bg-black" aria-label="Key art">
+			<div class="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-gradient-to-b from-black/75 to-transparent" aria-hidden="true"></div>
+			<nav class="absolute inset-x-0 top-0 z-20 flex items-center justify-between gap-4 px-4 py-4 md:px-8" aria-label="HYPE">
+				<a href="/" class="text-sm tracking-wide text-white/80 transition-colors hover:text-white">Outorbit</a>
+				<WishlistLink content="hype-nav" size="sm" />
+			</nav>
 			<div class="relative h-[clamp(20rem,85vw,calc(100svh-5rem))] w-full overflow-hidden md:h-[calc(100svh-6rem)]">
 				<img
-					src="/hype/hero.png"
-					alt="HYPE: Highschool Youkai Patrol & Exorcism — students with flashlights before a haunted school at night"
+					src="/hype/hero.webp"
+					alt="HYPE: Highschool Yokai Patrol & Exorcism — students with flashlights in front of a haunted school at night"
 					class="absolute inset-0 h-full w-full object-cover object-[left_32%] md:object-[center_32%]"
-					width="4096"
-					height="2023"
+					width="1232"
+					height="706"
 					fetchpriority="high"
 				/>
-				<!-- Strong fade in a short band at the bottom only (~12% height) -->
 				<div
 					class="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0)_88%,rgba(0,0,0,0.45)_93%,rgba(0,0,0,0.82)_97%,#000_100%)]"
 					aria-hidden="true"
-				/>
-				<p class="sr-only">H.Y.P.E — scroll for press information.</p>
-				<div
-					class="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-white/40"
-					aria-hidden="true"
-				>
+				></div>
+				<div class="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1 text-white/40" aria-hidden="true">
 					<span class="text-xs uppercase tracking-[0.2em]">Scroll</span>
 					<ChevronDown class="h-6 w-6 animate-bounce" aria-hidden="true" />
 				</div>
 			</div>
-			<div class="h-14 w-full shrink-0 bg-black md:h-20" aria-hidden="true" />
 		</section>
 
 		<main>
-			<!-- About the Game -->
-			<section class="mx-auto max-w-5xl px-6 py-20 md:px-10" id="about">
-				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">About the Game</h2>
-				<p class="mb-10 max-w-none text-base leading-relaxed text-white md:text-lg">
-					H.Y.P.E is an anime-inspired online co-op comedy-horror game set in a Japanese high school. By day, players
-					gather rumors, investigate strange incidents, and prepare as a team. By night, the school transforms into a
-					warped supernatural space where players must locate and seal a cursed anchor object while surviving
-					escalating yokai pressure.
+			<header class="mx-auto max-w-5xl px-6 pb-16 pt-10 md:px-10 md:pt-14" id="top">
+				<p class="mb-4 text-sm tracking-[0.18em] text-white/60 uppercase">Coming soon on Steam</p>
+				<h1 class="font-mono-annotation-bold max-w-[18ch] text-3xl leading-tight text-white md:text-5xl">
+					{gameTitle}
+				</h1>
+				<p class="mt-6 max-w-[62ch] text-base leading-relaxed text-white/90 md:text-lg">
+					A 1–4 player online co-op horror game set in a Japanese high school. You and your friends are the occult club.
+					By day, you follow the rumors. By night, you seal the curse.
 				</p>
-				<ul class="list-none space-y-3 text-base text-white md:text-lg">
-					<li>• Genre: Online co-op comedy-horror (firendslop)</li>
-					<li>• Players: 1–4 online co-op</li>
-					<li>• Setting: Japanese high school</li>
-					<li>• Platforms: PC</li>
-					<li>• Engine: Unity</li>
-					<li>• Developer: Outorbit Games</li>
-					<li>• Status: In development</li>
+				<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+					<WishlistLink content="hype-hero" />
+					<a
+						href="/hype/press"
+						class="inline-flex items-center justify-center px-5 py-3 text-sm tracking-wide text-white/80 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white"
+					>
+						Press kit
+					</a>
+				</div>
+			</header>
+
+			<section class="mx-auto max-w-5xl px-6 py-16 md:px-10" id="about">
+				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">About the game</h2>
+				<div class="max-w-[65ch] space-y-5 text-base leading-relaxed text-white md:text-lg">
+					<p>
+						The school day looks normal. It is not. Walk the halls, talk to your classmates, and listen. Everyone has heard
+						something about what is haunting the building, and every rumor tells you a little more about the night ahead.
+					</p>
+					<p>
+						Get ready in the clubroom. Pack what the night will need, including yokai apps for your phone. Then the lights
+						go out.
+					</p>
+					<p>
+						After dark, the school is not the one you left. Sneak back in with your friends. Keep quiet. Sound carries, and
+						you are not alone. Different yokai move through the classrooms. Somewhere inside, the curse is waiting. Find it
+						and seal the curse. It takes the whole club.
+					</p>
+				</div>
+				<ul class="mt-10 max-w-[65ch] list-none space-y-2 text-base text-white/85 md:text-lg">
+					<li>PC · Coming soon on Steam</li>
+					<li>1–4 player online co-op</li>
+					<li>English and Arabic</li>
+					<li>Outorbit Games</li>
 				</ul>
 			</section>
 
-			<!-- Key features -->
-			<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-20 md:px-10" id="features">
-				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">Key features</h2>
-				<ul class="list-none space-y-3 text-base text-white md:text-lg">
-					<li>• Daytime rumor gathering and team preparation</li>
-					<li>• Nighttime exploration in a distorted school</li>
-					<li>• Team-based tape sealing under pressure</li>
-					<li>• Japanese folklore-inspired yokai cases</li>
-					<li>
-						• Readable co-op roles where one seals and others defend, distract, and call out
-					</li>
+			<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-16 md:px-10" id="features">
+				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">What you do</h2>
+				<ul class="max-w-[65ch] list-none space-y-3 text-base text-white md:text-lg">
+					<li>Play online co-op with 1 to 4 players</li>
+					<li>Spend the school day gathering rumors</li>
+					<li>Go back in after dark, when the building has changed</li>
+					<li>Face different yokai</li>
+					<li>Use yokai apps</li>
+					<li>Seal the curse together</li>
 				</ul>
 			</section>
 
-			<!-- Concept Art -->
-			<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-20 md:px-10" id="concept-art">
-				<h2 class="font-mono-annotation-bold mb-10 text-2xl text-[#DF3D1A] md:text-3xl">Concept Art</h2>
-				<div class="grid gap-10 md:grid-cols-2 md:gap-8">
-					<div class="border border-white/10 bg-black">
-						<img
-							src="/hype/concept-uniforms.jpg"
-							alt="Character lineup in school uniforms with blue collars, holding charms and a flashlight"
-							class="block w-full h-auto"
-							width="1600"
-							height="900"
-							loading="lazy"
-						/>
-					</div>
-					<div class="border border-white/10 bg-black">
-						<img
-							src="/hype/concept-yurei.jpg"
-							alt="Yūrei concept — pale blue skin, tattered robe, cold breath and aura effects"
-							class="block w-full h-auto"
-							width="1600"
-							height="900"
-							loading="lazy"
-						/>
-					</div>
+			<!--
+				TRAILER PLACEHOLDER
+				Hidden until trailerYouTubeId is set in src/data/hype.ts.
+				Paste the YouTube video id only. The trailer is not final.
+			-->
+			{
+				trailerYouTubeId && (
+					<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-16 md:px-10" id="trailer">
+						<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">Trailer</h2>
+						<div class="aspect-video w-full overflow-hidden border border-white/10 bg-black">
+							<iframe
+								src={`https://www.youtube-nocookie.com/embed/${trailerYouTubeId}`}
+								title={`${gameTitle} trailer`}
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								allowfullscreen
+								class="h-full w-full"
+							/>
+						</div>
+					</section>
+				)
+			}
+
+			<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-16 md:px-10" id="screenshots">
+				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">Screenshots</h2>
+				<ul class="grid list-none gap-4 sm:grid-cols-2">
+					{
+						screenshots.map((shot, index) => (
+							<li class:list={[index === 0 && 'sm:col-span-2']}>
+								<img
+									src={shot.src}
+									alt={shot.alt}
+									width={shot.width}
+									height={shot.height}
+									loading="lazy"
+									class="block h-auto w-full border border-white/10 bg-black"
+								/>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+
+			<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-16 md:px-10" id="concept-art">
+				<h2 class="font-mono-annotation-bold mb-3 text-2xl text-[#DF3D1A] md:text-3xl">Concept art</h2>
+				<p class="mb-8 max-w-[65ch] text-sm text-white/60">Early art. The screenshots above are from the game.</p>
+				<div class="grid gap-8 md:grid-cols-2">
+					<img
+						src="/hype/uniforms.webp"
+						alt="Concept art: a lineup of students in school uniforms, holding charms and a flashlight"
+						class="block h-auto w-full border border-white/10 bg-black"
+						width="1600"
+						height="901"
+						loading="lazy"
+					/>
+					<img
+						src="/hype/yurei.webp"
+						alt="Concept art: a yūrei with pale blue skin, a tattered robe, and a cold aura"
+						class="block h-auto w-full border border-white/10 bg-black"
+						width="1600"
+						height="901"
+						loading="lazy"
+					/>
 				</div>
 			</section>
 
-			<!-- Studio -->
-			<section
-				class="mx-auto max-w-5xl border-t border-white/10 px-6 py-24 text-center md:px-10"
-				id="studio"
-			>
-				<img src="/logo.svg" alt="Outorbit Games" class="mx-auto mb-6 h-16 w-16 md:h-20 md:w-20" width="80" height="80" />
+			<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-20 text-center md:px-10" id="wishlist">
+				<h2 class="font-mono-annotation-bold mb-4 text-2xl text-white md:text-3xl">Coming soon on Steam</h2>
+				<p class="mx-auto mb-8 max-w-[48ch] text-base text-white/80">
+					Wishlist {gameTitle} and follow Outorbit Games for what comes next.
+				</p>
+				<WishlistLink content="hype-end" />
+				<p class="mt-8">
+					<a href="/hype/press" class="text-sm text-white/70 underline decoration-white/30 underline-offset-4 hover:text-white">
+						Press kit
+					</a>
+				</p>
+			</section>
+
+			<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-20 text-center md:px-10" id="studio">
+				<a href="/" class="inline-block">
+					<img src="/logo.svg" alt="Outorbit Games" class="mx-auto mb-6 h-16 w-16 md:h-20 md:w-20" width="80" height="80" />
+				</a>
 				<p class="font-mono-annotation-bold mx-auto mb-2 text-xl text-white md:text-2xl">Outorbit Games</p>
 				<p class="mx-auto mb-4 text-base text-white/90">Riyadh, Saudi Arabia</p>
 				<a
@@ -113,7 +219,6 @@ const description =
 				>
 					contact@outorbit.games
 				</a>
-				<p class="font-mono-annotation-bold mx-auto mt-14 text-3xl text-[#DF3D1A] md:text-4xl">Thank You</p>
 				<p class="mx-auto mt-16 text-sm text-white/50">© Outorbit • All Rights Reserved</p>
 			</section>
 		</main>

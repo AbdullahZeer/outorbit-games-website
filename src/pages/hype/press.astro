@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import WishlistLink from '../../components/WishlistLink.astro';
+import { gameTitle, screenshots } from '../../data/hype';
+import factEn from '../../../press-kit/fact-sheet-en.txt?raw';
+import factJa from '../../../press-kit/fact-sheet-ja.txt?raw';
+
+const title = `Press kit — ${gameTitle} | Outorbit Games`;
+const description =
+	'Press kit for HYPE: Highschool Yokai Patrol & Exorcism by Outorbit Games. Fact sheet, key art, logo, and screenshots. Contact contact@outorbit.games.';
+const keywords =
+	'HYPE press kit, Highschool Yokai Patrol and Exorcism, Outorbit Games, fact sheet, key art, Steam';
+
+const downloads = [
+	{ href: '/hype/hero.webp', label: 'Key art', width: 1232, height: 706 },
+	{ href: '/hype/header.jpg', label: 'Steam header', width: 460, height: 215 },
+	{ href: '/hype/capsule.jpg', label: 'Steam capsule', width: 616, height: 353 },
+	{ href: '/logo.svg', label: 'Outorbit logo', width: 512, height: 512 },
+	...screenshots.map((shot, index) => ({
+		href: shot.src,
+		label: `Screenshot ${index + 1}`,
+		width: shot.width,
+		height: shot.height,
+	})),
+	{ href: '/hype/uniforms.webp', label: 'Concept art, uniforms', width: 1600, height: 901 },
+	{ href: '/hype/yurei.webp', label: 'Concept art, yūrei', width: 1600, height: 901 },
+];
+---
+
+<Layout
+	title={title}
+	description={description}
+	keywords={keywords}
+	canonicalPath="/hype/press/"
+	ogImage="/og/hype.jpg"
+	ogImageAlt={`${gameTitle} key art`}
+	ogImageWidth={1200}
+	ogImageHeight={630}
+>
+	<div class="font-mono-annotation bg-black text-white [&_p]:max-w-none">
+		<header class="border-b border-white/10">
+			<nav class="mx-auto flex max-w-5xl flex-wrap items-center gap-x-4 gap-y-2 px-6 py-4 text-sm text-white/70 md:px-10" aria-label="Breadcrumb">
+				<a href="/" class="hover:text-white">Outorbit</a>
+				<span aria-hidden="true">/</span>
+				<a href="/hype" class="hover:text-white">HYPE</a>
+				<span aria-hidden="true">/</span>
+				<span class="text-white">Press kit</span>
+			</nav>
+		</header>
+
+		<main class="mx-auto max-w-5xl px-6 py-14 md:px-10 md:py-20">
+			<p class="mb-4 text-sm tracking-[0.18em] text-white/60 uppercase">Outorbit Games</p>
+			<h1 class="font-mono-annotation-bold max-w-[16ch] text-3xl leading-tight text-white md:text-5xl">Press kit</h1>
+			<p class="mt-4 max-w-[62ch] text-base text-white/85 md:text-lg">{gameTitle}</p>
+
+			<div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+				<a
+					href="/hype/press/hype-press-kit.zip"
+					class="inline-flex items-center justify-center bg-[#DF3D1A] px-5 py-3 text-sm tracking-wide text-white transition-colors hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DF3D1A]"
+				>
+					Download press kit (.zip)
+				</a>
+				<WishlistLink content="press" variant="ghost" />
+			</div>
+			<p class="mt-4 text-sm text-white/60">
+				Key art, Steam header and capsule, screenshots, concept art, the studio logo, and the fact sheet in English and Japanese.
+			</p>
+
+			<section class="mt-16 border-t border-white/10 pt-12" id="fact-sheet">
+				<div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+					<h2 class="font-mono-annotation-bold text-2xl text-[#DF3D1A] md:text-3xl">Fact sheet</h2>
+					<a href="/hype/press/fact-sheet-en.txt" class="text-sm text-white/70 underline decoration-white/30 underline-offset-4 hover:text-white" download>
+						Download English (.txt)
+					</a>
+				</div>
+				<pre class="whitespace-pre-wrap text-sm leading-relaxed text-white/90 md:text-base">{factEn}</pre>
+			</section>
+
+			<section class="mt-16 border-t border-white/10 pt-12" id="fact-sheet-ja" lang="ja">
+				<div class="mb-6 flex flex-wrap items-end justify-between gap-4">
+					<h2 class="font-mono-annotation-bold text-2xl text-[#DF3D1A] md:text-3xl">ファクトシート</h2>
+					<a href="/hype/press/fact-sheet-ja.txt" class="text-sm text-white/70 underline decoration-white/30 underline-offset-4 hover:text-white" download>
+						日本語 (.txt)
+					</a>
+				</div>
+				<pre class="whitespace-pre-wrap text-sm leading-relaxed text-white/90 md:text-base">{factJa}</pre>
+			</section>
+
+			<section class="mt-16 border-t border-white/10 pt-12" id="images">
+				<h2 class="font-mono-annotation-bold mb-8 text-2xl text-[#DF3D1A] md:text-3xl">Images</h2>
+				<ul class="grid list-none gap-6 sm:grid-cols-2">
+					{
+						downloads.map((item) => (
+							<li class="border border-white/10 bg-black">
+								<a href={item.href} download class="block">
+									<img
+										src={item.href}
+										alt=""
+										width={item.width}
+										height={item.height}
+										loading="lazy"
+										class="block h-40 w-full object-cover object-center"
+									/>
+									<span class="block px-3 py-3 text-sm text-white/80">{item.label}</span>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+
+			<section class="mt-16 border-t border-white/10 py-16" id="contact">
+				<h2 class="font-mono-annotation-bold mb-4 text-2xl text-[#DF3D1A] md:text-3xl">Contact</h2>
+				<p class="max-w-[62ch] text-base leading-relaxed text-white/90">
+					Press, creators, and festival questions:
+					<a
+						href="mailto:contact@outorbit.games"
+						class="text-[#DF3D1A] underline decoration-[#DF3D1A]/40 underline-offset-4 hover:text-white"
+					>
+						contact@outorbit.games
+					</a>
+				</p>
+				<p class="mt-8 text-sm text-white/50">© Outorbit • All Rights Reserved</p>
+			</section>
+		</main>
+	</div>
+</Layout>
