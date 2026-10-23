@@ -15,17 +15,6 @@ export function steamUrl(content: string) {
 }
 
 /**
- * STEAM SCREAM V
- * Set `enabled` to false after Nov 2, 2026 (or delete this and the <ScreamFest /> tags).
- * That removes the fest line from the home page, /hype, and /hype/press.
- */
-export const screamFest = {
-	enabled: true,
-	name: "Steam Scream V",
-	dates: "Oct 26 to Nov 2",
-} as const;
-
-/**
  * TRAILER PLACEHOLDER
  * Paste a YouTube video id here when the trailer is final (the id only, not the full URL).
  * Leave this empty to hide the embed on /hype.

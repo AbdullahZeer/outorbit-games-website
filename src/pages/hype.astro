@@ -1,14 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import WishlistLink from '../components/WishlistLink.astro';
-import ScreamFest from '../components/ScreamFest.astro';
 import { ChevronDown } from 'lucide-astro';
 import { gameTitle, hypeDescription, screenshots, trailerYouTubeId } from '../data/hype';
 
 const title = `${gameTitle} | Outorbit Games`;
 const description = hypeDescription;
 const keywords =
-	'HYPE, Highschool Yokai Patrol and Exorcism, yokai, co-op horror, online co-op, Japanese high school, occult club, Outorbit Games, Steam, Steam Scream';
+	'HYPE, Highschool Yokai Patrol and Exorcism, yokai, co-op horror, online co-op, Japanese high school, occult club, Outorbit Games, Steam';
 
 const gameLd = {
 	'@context': 'https://schema.org',
@@ -78,7 +77,6 @@ const gameLd = {
 				<h1 class="font-mono-annotation-bold max-w-[18ch] text-3xl leading-tight text-white md:text-5xl">
 					{gameTitle}
 				</h1>
-				<ScreamFest class="mt-5" />
 				<p class="mt-6 max-w-[62ch] text-base leading-relaxed text-white/90 md:text-lg">
 					A 1–4 player online co-op horror game set in a Japanese high school. You and your friends are the occult club.
 					By day, you follow the rumors. By night, you seal the curse.
@@ -198,7 +196,6 @@ const gameLd = {
 
 			<section class="mx-auto max-w-5xl border-t border-white/10 px-6 py-20 text-center md:px-10" id="wishlist">
 				<h2 class="font-mono-annotation-bold mb-4 text-2xl text-white md:text-3xl">Coming soon on Steam</h2>
-				<ScreamFest class="mb-6" />
 				<p class="mx-auto mb-8 max-w-[48ch] text-base text-white/80">
 					Wishlist {gameTitle} and follow Outorbit Games for what comes next.
 				</p>
