@@ -7,14 +7,16 @@ Outorbit Games
 ジャンル：協力型ホラー（一人称）
 プレイ人数：1〜4人（オンライン協力／ソロ対応）
 対応機種：PC（Steam）
-発売時期：未定（Coming Soon）
+対応OS：Windows
+発売時期：未定（Steamで近日登場）
 価格：未定
 対応言語：英語、アラビア語（インターフェース）
 舞台：日本の高校
 Steam：https://store.steampowered.com/app/4637410/
-公式サイト：https://outorbit.games/hype
-プレスキット：https://outorbit.games/hype/press
+公式サイト：https://outorbit.games/hype/
+プレスキット：https://outorbit.games/hype/press/
 お問い合わせ：contact@outorbit.games
+X：https://x.com/OutorbitGames
 短い紹介文：高校のオカルト部となり、昼は噂を集め、夜は妖怪が潜む校舎へ忍び込む。最大4人のオンライン協力ホラー。
 
 クレジット：ゲーム名は「HYPE: Highschool Yokai Patrol & Exorcism」、スタジオ名は「Outorbit Games」と表記してください。

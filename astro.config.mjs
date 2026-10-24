@@ -6,7 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://outorbit.games',
-	integrations: [sitemap()],
+	trailingSlash: 'always',
+	integrations: [sitemap({ lastmod: new Date() })],
 	vite: {
 		plugins: [tailwindcss()],
 	},

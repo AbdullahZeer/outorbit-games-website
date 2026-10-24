@@ -18,7 +18,13 @@ Players
 1–4, online co-op
 
 Platform
-PC (Steam), coming soon
+PC (Windows), Steam
+
+Release date
+TBA (Coming Soon on Steam)
+
+Price
+TBA
 
 Languages
 English and Arabic (interface)
@@ -27,13 +33,16 @@ Setting
 A Japanese high school
 
 Website
-https://outorbit.games/hype
+https://outorbit.games/hype/
 
 Steam
 https://store.steampowered.com/app/4637410/
 
 Press page
-https://outorbit.games/hype/press
+https://outorbit.games/hype/press/
+
+X
+https://x.com/OutorbitGames
 
 Contact
 contact@outorbit.games
