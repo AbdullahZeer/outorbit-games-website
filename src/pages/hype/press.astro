@@ -74,7 +74,7 @@ const pressSections = [
 		"title": "Trailer",
 		"id": "trailer",
 		"blocks": [
-			"- Announcement Trailer: watch on the Steam page, https://store.steampowered.com/app/4637410/"
+			"- Announcement Trailer: watch on the Steam page, https://store.steampowered.com/app/4637410/\n- Download Announcement Trailer (MP4): https://drive.google.com/uc?export=download&id=1Esx6D191REDHywWwNDk0uXgtGvazQBeS\n- View on Drive: https://drive.google.com/file/d/1Esx6D191REDHywWwNDk0uXgtGvazQBeS/view?usp=sharing"
 		]
 	},
 	{
@@ -156,6 +156,14 @@ const copyLink = (text: string) => {
 							</ul>
 						) : <p>{block}</p>)}
 					</div>
+					{section.id === 'trailer' && (
+						<a
+							href="https://drive.google.com/uc?export=download&id=1Esx6D191REDHywWwNDk0uXgtGvazQBeS"
+							class="mt-8 inline-flex items-center justify-center bg-[#DF3D1A] px-5 py-3 text-sm tracking-wide text-white transition-colors hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#DF3D1A]"
+						>
+							Download Announcement Trailer (MP4)
+						</a>
+					)}
 					{section.id === 'trailer' && trailerYouTubeId && (
 						<div class="mt-8 aspect-video w-full overflow-hidden border border-white/10 bg-black">
 							<iframe src={`https://www.youtube-nocookie.com/embed/${trailerYouTubeId}`} title={`${gameTitle} trailer`} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="h-full w-full" />
